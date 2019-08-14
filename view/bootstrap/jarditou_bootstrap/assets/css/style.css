@@ -1,0 +1,27 @@
+.img {
+    height: auto;
+    width: 100%;
+}
+.logo {
+    width: 200px;
+    height: auto;
+}
+.aside {
+    background: grey;
+    height: 100%;
+}
+ul li a {
+    color: white;   
+   
+}
+ul {
+    display: flex;
+    list-style: none; 
+    padding: 20px;
+}
+.li1 {
+    margin-left: 1em;
+}
+/* .footer {
+    height: 50px;
+} */

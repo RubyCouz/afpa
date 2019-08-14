@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Les formulaires</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai.min.css">
+    <link rel="stylesheet" href="" />
+</head>
+
+<body>
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-center">
+            <div class="uk-navbar-center-left">
+                <div>
+                    <ul class="uk-navbar-nav">
+                        <li><a href="javascript.html">Validation Javascript</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a class="uk-navbar-item uk-logo" href="#">Validation de formulaire</a>
+            <div class="uk-navbar-center-right">
+                <div>
+                    <ul class="uk-navbar-nav">
+                        <li><a href="jquery.html">Validation Jquery</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="uk-container">
+        <ul uk-accordion>
+            <li class="uk-open">
+                <a class="uk-accordion-title" href="#">Présentation du formulaire</a>
+                <div class="uk-accordion-content">
+                    <p>
+                        Nous devons faire la vérfication côté client du formulaire; c'est à dire afficher des message
+                        d'erreurs en temps, afin d'avertir l'utilisateur lorsqu'il a fait une mauvaise saisie, ou
+                        lorsqu'il a oublié de remplir un champs.
+                    </p>
+                    <p>
+                        Voici notre formulaire :
+                    </p>
+                    <pre>
+                        <code class="html">
+&lt;formclass="col s12" action="#" method="POST"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="input-field col s6"&gt;
+      &lt;input id="compagny" type="text" class="validate" name="compagny" required&gt;
+      &lt;label for="compagny"&gt;Société :&lt;/label&gt;
+      &lt;span class="missCompagny" id="missCompagny"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="input-field col s6"&gt;
+      &lt;input id="contact" type="text" class="validate" name="contact" required&gt;
+      &lt;label for="contact"&gt;Personne à contacter :&lt;/label&gt;
+      &lt;span class="missContact" id="missContact"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="input-field col s12"&gt;
+      &lt;textarea id="address" type="text" class="materialize-textarea validate" name="address" required&gt;&lt;/textarea&gt;
+      &lt;label for="address"&gt;Adresse de l'entreprise :&lt;/label&gt;
+      &lt;span class="missAddress" id="missAddress"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="input-field col s6"&gt;
+      &lt;input id="postalCode" type="text" class="validate" name="postalCode" required&gt;
+      &lt;label for="postalCode"&gt;Code postal :&lt;/label&gt;
+      &lt;span class="misspostalCode" id="missPostalCode"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="input-field col s6"&gt;
+      &lt;input id="city" type="text" class="validate" name="city" required&gt;
+      &lt;label for="city"&gt;Ville :&lt;/label&gt;
+      &lt;span class="missCity" id="missCity"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="input-field col s12"&gt;
+      &lt;input id="mail" type="email" class="validate" name="mail" required&gt;
+      &lt;label for="mail"&gt;Email :&lt;/label&gt;
+      &lt;span class="missMail" id="missMail"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="input-field col s12"&gt;
+      &lt;input id="phone" type="text" class="validate" name="phone" required&gt;
+      &lt;label for="phone"&gt;Téléphone :&lt;/label&gt;
+      &lt;span class="missPhone" id="missPhone"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="input-field col s6"&gt;
+      &lt;select name="environment" id="environment" required&gt;
+        &lt;option value="" disabled selected&gt;Choississez&lt;/option&gt;
+        &lt;option value="1"&gt;Access&lt;/option&gt;
+        &lt;option value="2"&gt;Java&lt;/option&gt;
+        &lt;option value="3"&gt;Delphi&lt;/option&gt;
+        &lt;option value="4"&gt;Windev&lt;/option&gt;
+        &lt;option value="5"&gt;Visual Basic&lt;/option&gt;
+        &lt;option value="6"&gt;Power Builder&lt;/option&gt;
+        &lt;option value="7"&gt;Internet&lt;/option&gt;
+        &lt;option value="8"&gt;Intranet&lt;/option&gt;
+        &lt;option value="9"&gt;Windows NT&lt;/option&gt;
+        &lt;option value="10"&gt;Unix&lt;/option&gt;
+        &lt;option value="11"&gt;SQL Server&lt;/option&gt;
+        &lt;option value="12"&gt;Oracle&lt;/option&gt;
+        &lt;option value="13"&gt;Autres...&lt;/option&gt;
+      &lt;/select&gt;
+      &lt;label for="environment"&gt;Sélectionnez l'environnement technique du projet :&lt;/label&gt;
+     
+    &lt;/div&gt;
+    &lt;div class="input-field col s6"&gt;
+      &lt;textarea id="textEnvironment" type="text" class="materialize-textarea validate"&gt;&lt;/textarea&gt;
+      &lt;span class="missTextEnvironment" id="missTextEnvironment"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col s6 center-align"&gt;
+      &lt;input type="submit" id="submit" name="submit" value="Envoyer" class="btn waves-effect waves-light green darken-2"&gt;
+    &lt;/div&gt;
+    &lt;div class="col s6 center-align"&gt;
+      &lt;input type="reset" name="reset" value="Effacer" class="btn waves-effect waves-dark red darken-4"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+                        </code>
+                    </pre>
+                </div>
+                <hr class="uk-divider-icon">
+            </li>
+            <li>
+                <a class="uk-accordion-title" href="#">Ciblage des éléments à controler</a>
+                <div class="uk-accordion-content">
+                    <p>
+                        Pour cibler un <code>input</code> à controler, nous allons utiliser la méthode <a
+                            href="https://developer.mozilla.org/fr/docs/Web/API/Document/getElementById"
+                            title="Lien vers la définition MDN" target="_blank" class="uk-link-muted">
+                            <code>getElementById()</code>
+                        </a>. Elle va nous permettre de cibler un élement de notre page selon son id. Nous stockerons
+                        cet élément dans une variable. Exemple pour le champs "Société" :
+                    </p>
+                    <pre>
+                        <code class="js">
+var compagny = document.getElementById('compagny');
+                        </code>
+                    </pre>
+                    <p>
+                        Nous répétons cette action autant de fois que nous avons d'élément à cibler :
+                    </p>
+                    <pre>
+                        <code class="js">
+// déclaration de variable qui serviront à la récupération de la valeur des champs de saisie
+var compagny = document.getElementById('compagny');
+var contact = document.getElementById('contact');
+var address = document.getElementById('address');
+var postalCode = document.getElementById('postalCode');
+var city = document.getElementById('city');
+var mail = document.getElementById('mail');
+var phone = document.getElementById('phone');
+var submit = document.getElementById('submit');
+var textEnvironment = document.getElementById('textEnvironment');
+// pour récupérer la valeur de la liste déroulante
+var environment = document.getElementById('environment');
+                        </code>
+                    </pre>
+                    <p>
+                        De la même façon nous allons cibler les éléments nous permettant d'afficher un message d'erreur
+                        :
+                    </p>
+                    <pre>
+                        <code>
+// définition du ciblage pour l'affichage du message d'erreur
+var missCompagny = document.getElementById('missCompagny');
+var missContact = document.getElementById('missContact');
+var missAddress = document.getElementById('missAddress');
+var missPostalCode = document.getElementById('missPostalCode');
+var missCity = document.getElementById('missCity');
+var missMail = document.getElementById('missMail');
+var missPhone = document.getElementById('missPhone');
+var missTextEnvironment = document.getElementById('missTextEnvironment');
+// définition des conditons de validation des champs de saisie
+                        </code>
+                    </pre>
+                </div>
+                <hr class="uk-divider-icon">
+            </li>
+            <li>
+                <a class="uk-accordion-title" href="#">Définition des regexs</a>
+                <div class="uk-accordion-content">
+                    <p>
+                        Pour controller correctement un formulaire, nous devons vérifier
+                        ce que l'utilsateur a pu saisir : il faut que les données entrées correspondent à un schéma que
+                        nous définissons. De cette manière, les données saisies sont correct, et le formulaire est un
+                        peu plus sécurisé.
+                    </p>
+                    <p>
+                        Il est possible d'utilisé une regex pour plusieurs <code>input</code>.
+                    </p>
+                    <p>
+                        Lorsque vous établissez une regex, il important de la tester. De nombreux sites sur la toile
+                        propose ce service, notamment <a href="https://regex101.com/" title="Lien vers regex101"
+                            class="uk-link-muted" target="_blank">Regex101</a>.
+                    </p>
+                    <p>
+                        Les regexs utilisées ici :
+                    </p>
+                    <pre>
+                        <code class="js">
+// définition des conditons de validation des champs de saisie
+var textValid = /^[a-zA-Z\-\déèàçùëüïôäâêûîô#&]+$/;
+var postalCodeValid = /^((0[1-9])|([1-8][0-9])|(9[0-8])|(2A)|(2B))[0-9]{3}$/;
+var mailValid = /[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}/;
+var phoneValid = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
+                        </code>
+                    </pre>
+                </div>
+                <hr class="uk-divider-icon">
+            </li>
+            <li>
+                <a class="uk-accordion-title" href="#">Définition des fonctions permettant les vérifications</a>
+                <div class="uk-accordion-content">
+                    <p>
+                        Nous commencerons par faire une vérification lors de la perte de focus d'un champs de saisie.
+                        Pour cela nous devons faire une fonction qui se déclanchera lors de l'évènemment :
+                    </p>
+                    <pre>
+                        <code class="js">
+function compagnyCheck() {
+    // si le champ est vide
+    if (compagny.validity.valueMissing) {
+        event.preventDefault()
+        missCompagny.textContent = 'Champ non renseigné';
+  
+        compagny.className('uk-form-danger');
+        // test de la validité du champs de saisie
+    } else if (textValid.test(compagny.value) == false) {
+        event.preventDefault();
+        missCompagny.textContent = 'Format incorrect';
+    
+        // si la saisie est correct
+    } else {
+        
+        missCompagny.textContent = 'Ok';
+      
+    }
+};
+                        </code>
+                    </pre>
+                    <p>
+                        Nous commençons par vérifier si le champs est vide :
+                    </p>
+                    <pre>
+                        <code class="js">
+if (compagny.validity.valueMissing) {
+    instruction
+}
+                        </code>
+                    </pre>
+                    <p>
+                        Alors nous empéchons l'envoie du formulaire à l'aide de <a
+                            href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault"
+                            title="Lien vers définition MDN" class="uk-link-muted"
+                            target="_blank"><code>event.preventDefault()</code></a>, et nous affichons un message
+                        d'erreur :
+                    </p>
+                    <pre>
+                        <code class="js">
+event.preventDefault()
+missCompagny.textContent = 'Champ non renseigné';
+missCompagny.style.color = 'red';
+                        </code>
+                    </pre>
+                    <p>
+                        Sinon si le champs est rempli, on test la valeur saisie avec la regex adaptée. Si la valeur ne
+                        passe pas, on affiche un message d'erreur :
+                    </p>
+                    <pre>
+                        <code class="js">
+else if (textValid.test(compagny.value) == false) {
+    event.preventDefault();
+    missCompagny.textContent = 'Format incorrect';
+    missCompagny.style.color = 'red';
+    // si la saisie est correct
+}
+                        </code>
+                    </pre>
+                    <p>
+                        Sinon si tout va bien, on peut afficher un message de confirmation :
+                    </p>
+                    <pre>
+                        <code class="js">
+missCompagny.textContent = 'Ok';
+missCompagny.style.color = 'green';
+                        </code>
+                    </pre>
+                    <p>
+                        Il nous reste plus qu'à répéter la même opération pour chaque champs à vérifier.
+                    </p>
+                </div>
+                <hr class="uk-divider-icon">
+            </li>
+            <li>
+                <a class="uk-accordion-title" href="#">Déclaration de l'évènemment</a>
+                <div class="uk-accordion-content">
+                    <p>
+                        Nous voulons faire une vérification quand il y a perte de focus. Nous définirons notre
+                        évènemment de cette façon :
+                    </p>
+                    <pre>
+                        <code class="js">
+compagny.onblur = compagnyCheck;
+                        </code>
+                    </pre>
+                    <p>
+                        La méthode <a href="" title="Lien vers définition MDN" class="uk-link-muted"
+                            target="_blank"><code>onblur</code></a> désigne la perte de focus. Ici, nous indiquons donc
+                        que lorsque nous perdons le focus du champs "société", le script doit se référer à la fonction
+                        compagnyCheck.
+                        ATTENTION!! Ceci ne constitue pas un appel de fonction.
+                    </p>
+                </div>
+                <hr class="uk-divider-icon">
+            </li>
+            <li>
+                <a class="uk-accordion-title" href="#">Vérification sur le bouton d'envoi du formulaire</a>
+                <div class="uk-accordion-content">
+                    <p>
+                        Nous allons reprendre la même méthode, seul le déclancheur d'évènemment change. au lieu
+                        d'utiliser <code>unblur()</code>, nous utiliserons <code>onclick()</code>.
+                    </p>
+                    <p>
+                        En outre, nous auront une seul fonction, qui regroupera les fonctions déclancher à la perte de
+                        focus.
+                    </p>
+                    <p>
+                        Le déclencher :
+                    </p>
+                    <pre>
+                        <code class="js">
+submit.onclick() = checkForm;
+                        </code>
+                    </pre>
+                    <p>
+                        La fonction :
+                    </p>
+                    <pre>
+                        <code class="js">
+function checkForm() {
+    // si le champ société est vide
+    if (compagny.validity.valueMissing) {
+        event.preventDefault()
+        missCompagny.textContent = 'Champ non renseigné';
+        missCompagny.style.color = 'red';
+        // test de la validité du champs de saisie
+    } else if (textValid.test(compagny.value) == false) {
+        event.preventDefault();
+        missCompagny.textContent = 'Format incorrect';
+        missCompagny.style.color = 'red';
+        // si la saisie est correct
+    } else {
+        missCompagny.textContent = 'Ok';
+        missCompagny.style.color = 'green';
+    }
+    // champs personne à contacter
+    if (contact.validity.valueMissing) {
+        event.preventDefault()
+        missContact.textContent = 'Champ non renseigné';
+        missContact.style.color = 'red';
+    } else if (textValid.test(contact.value) == false) {
+        event.preventDefault();
+        missContact.textContent = 'Format incorrect';
+        missContact.style.color = 'red';
+    } else {
+        missContact.textContent = 'Ok';
+        missContact.style.color = 'green';
+    }
+    // champs adresse
+    if (address.validity.valueMissing) {
+        event.preventDefault()
+        missAddress.textContent = 'Champ non renseigné';
+        missAddress.style.color = 'red';
+    } else if (textValid.test(address.value) == false) {
+        event.preventDefault();
+        missAddress.textContent = 'Format incorrect';
+        missAddress.style.color = 'red';
+    } else {
+        missAddress.textContent = 'Ok';
+        missAddress.style.color = 'green';
+    }
+    // champs code postal
+    if (postalCode.validity.valueMissing) {
+        event.preventDefault()
+        missPostalCode.textContent = 'Champ non renseigné';
+        missPostalCode.style.color = 'red';
+    } else if (postalCodeValid.test(postalCode.value) == false) {
+        event.preventDefault();
+        missPostalCode.textContent = 'Format incorrect';
+        missPostalCode.style.color = 'red';
+    } else {
+        missPostalCode.textContent = 'Ok';
+        missPostalCode.style.color = 'green';
+    }
+    // champs ville
+    if (city.validity.valueMissing) {
+        event.preventDefault()
+        missCity.textContent = 'Champ non renseigné';
+        missCity.style.color = 'red';
+    } else if (textValid.test(city.value) == false) {
+        event.preventDefault();
+        missCity.textContent = 'Format incorrect';
+        missCity.style.color = 'red';
+    } else {
+        missCity.textContent = 'Ok';
+        missCity.style.color = 'green';
+    }
+    // champs mail
+    if (mail.validity.valueMissing) {
+        event.preventDefault()
+        missMail.textContent = 'Champ non renseigné';
+        missMail.style.color = 'red';
+    } else if (mailValid.test(mail.value) == false) {
+        event.preventDefault();
+        missMail.textContent = 'Format incorrect';
+        missMail.style.color = 'red';
+    } else {
+        missMail.textContent = 'Ok';
+        missMail.style.color = 'green';
+    }
+    //champs telephone
+    if (phone.validity.valueMissing) {
+        event.preventDefault()
+        missPhone.textContent = 'Champ non renseigné';
+        missPhone.style.color = 'red';
+    } else if (phoneValid.test(phone.value) == false) {
+        event.preventDefault();
+        missPhone.textContent = 'Format incorrect';
+        missPhone.style.color = 'red';
+    } else {
+        missPhone.textContent = 'Ok';
+        missPhone.style.color = 'green';
+    }
+   // textarea environnement
+    if (textEnvironment.validity.valueMissing) {
+        event.preventDefault()
+        missTextEnvironment.textContent = 'Champ non renseigné';
+        missTextEnvironment.style.color = 'red';
+    } else if (textValid.test(environment.value) == false) {
+        event.preventDefault();
+        missTextEnvironment.textContent = 'Format incorrect';
+        missTextEnvironment.style.color = 'red';
+    } else {
+        missTextEnvironment.textContent = 'Ok';
+        missTextEnvironment.style.color = 'green';
+    }
+}
+                    </code>
+                </pre>
+                </div>
+                <hr class="uk-divider-icon">
+            </li>
+            <li>
+                <a class="uk-accordion-title" href="#">Code final</a>
+                <div class="uk-accordion-content">
+                    <pre>
+                       <code class="js">
+// déclaration de variable qui serviront à la récupération de la valeur des champs de saisie
+var compagny = document.getElementById('compagny');
+var contact = document.getElementById('contact');
+var address = document.getElementById('address');
+var postalCode = document.getElementById('postalCode');
+var city = document.getElementById('city');
+var mail = document.getElementById('mail');
+var phone = document.getElementById('phone');
+var submit = document.getElementById('submit');
+var textEnvironment = document.getElementById('textEnvironment');
+// pour récupérer la valeur de la liste déroulante
+var environment = document.getElementById('environment');
+
+// définition du ciblage pour l'affichage du message d'erreur
+var missCompagny = document.getElementById('missCompagny');
+var missContact = document.getElementById('missContact');
+var missAddress = document.getElementById('missAddress');
+var missPostalCode = document.getElementById('missPostalCode');
+var missCity = document.getElementById('missCity');
+var missMail = document.getElementById('missMail');
+var missPhone = document.getElementById('missPhone');
+var missTextEnvironment = document.getElementById('missTextEnvironment');
+// définition des conditons de validation des champs de saisie
+var textValid = /^[a-zA-Z\-\déèàçùëüïôäâêûîô#&]+$/;
+var postalCodeValid = /^((0[1-9])|([1-8][0-9])|(9[0-8])|(2A)|(2B))[0-9]{3}$/;
+var mailValid = /[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}/;
+var phoneValid = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
+// check de l'évènement sur le bouton 'valider'
+// submit.addEventListener('click', checkForm);
+// quand il y perte de focus sur un champ
+compagny.onblur = compagnyCheck;
+contact.onblur = contactCheck;
+address.onblur = addressCheck;
+city.onblur = cityCheck;
+postalCode.onblur = postalCodeCheck;
+textEnvironment.onblur = textEnvironmentCheck;
+mail.onblur = mailCheck;
+phone.onblur = phoneCheck;
+environment.onchange = getSelect;
+submit.onclick = checkForm;
+function checkForm() {
+    // si le champ est vide
+    if (compagny.validity.valueMissing) {
+        event.preventDefault()
+        missCompagny.textContent = 'Champ non renseigné';
+        missCompagny.style.color = 'red';
+        // test de la validité du champs de saisie
+    } else if (textValid.test(compagny.value) == false) {
+        event.preventDefault();
+        missCompagny.textContent = 'Format incorrect';
+        missCompagny.style.color = 'red';
+        // si la saisie est correct
+    } else {
+        missCompagny.textContent = 'Ok';
+        missCompagny.style.color = 'green';
+    }
+    if (contact.validity.valueMissing) {
+        event.preventDefault()
+        missContact.textContent = 'Champ non renseigné';
+        missContact.style.color = 'red';
+    } else if (textValid.test(contact.value) == false) {
+        event.preventDefault();
+        missContact.textContent = 'Format incorrect';
+        missContact.style.color = 'red';
+    } else {
+        missContact.textContent = 'Ok';
+        missContact.style.color = 'green';
+    }
+    if (address.validity.valueMissing) {
+        event.preventDefault()
+        missAddress.textContent = 'Champ non renseigné';
+        missAddress.style.color = 'red';
+    } else if (textValid.test(address.value) == false) {
+        event.preventDefault();
+        missAddress.textContent = 'Format incorrect';
+        missAddress.style.color = 'red';
+    } else {
+        missAddress.textContent = 'Ok';
+        missAddress.style.color = 'green';
+    }
+    if (postalCode.validity.valueMissing) {
+        event.preventDefault()
+        missPostalCode.textContent = 'Champ non renseigné';
+        missPostalCode.style.color = 'red';
+    } else if (postalCodeValid.test(postalCode.value) == false) {
+        event.preventDefault();
+        missPostalCode.textContent = 'Format incorrect';
+        missPostalCode.style.color = 'red';
+    } else {
+        missPostalCode.textContent = 'Ok';
+        missPostalCode.style.color = 'green';
+    }
+    if (city.validity.valueMissing) {
+        event.preventDefault()
+        missCity.textContent = 'Champ non renseigné';
+        missCity.style.color = 'red';
+    } else if (textValid.test(city.value) == false) {
+        event.preventDefault();
+        missCity.textContent = 'Format incorrect';
+        missCity.style.color = 'red';
+    } else {
+        missCity.textContent = 'Ok';
+        missCity.style.color = 'green';
+    }
+    if (mail.validity.valueMissing) {
+        event.preventDefault()
+        missMail.textContent = 'Champ non renseigné';
+        missMail.style.color = 'red';
+    } else if (mailValid.test(mail.value) == false) {
+        event.preventDefault();
+        missMail.textContent = 'Format incorrect';
+        missMail.style.color = 'red';
+    } else {
+        missMail.textContent = 'Ok';
+        missMail.style.color = 'green';
+    }
+    if (phone.validity.valueMissing) {
+        event.preventDefault()
+        missPhone.textContent = 'Champ non renseigné';
+        missPhone.style.color = 'red';
+    } else if (phoneValid.test(phone.value) == false) {
+        event.preventDefault();
+        missPhone.textContent = 'Format incorrect';
+        missPhone.style.color = 'red';
+    } else {
+        missPhone.textContent = 'Ok';
+        missPhone.style.color = 'green';
+    }
+    if (textEnvironment.validity.valueMissing) {
+        event.preventDefault()
+        missTextEnvironment.textContent = 'Champ non renseigné';
+        missTextEnvironment.style.color = 'red';
+    } else if (textValid.test(environment.value) == false) {
+        event.preventDefault();
+        missTextEnvironment.textContent = 'Format incorrect';
+        missTextEnvironment.style.color = 'red';
+    } else {
+        missTextEnvironment.textContent = 'Ok';
+        missTextEnvironment.style.color = 'green';
+    }
+}
+// déclaration des fonctions vérifiant les champs de saisie du formulaire
+// vérification du champ société
+function compagnyCheck() {
+    // si le champ est vide
+    if (compagny.validity.valueMissing) {
+        event.preventDefault()
+        missCompagny.textContent = 'Champ non renseigné';
+        missCompagny.style.color = 'red';
+        // test de la validité du champs de saisie
+    } else if (textValid.test(compagny.value) == false) {
+        event.preventDefault();
+        missCompagny.textContent = 'Format incorrect';
+        missCompagny.style.color = 'red';
+        // si la saisie est correct
+    } else {
+
+        missCompagny.textContent = 'Ok';
+        missCompagny.style.color = 'green';
+    }
+};
+// vérification du champ contact
+function contactCheck() {
+    if (contact.validity.valueMissing) {
+        event.preventDefault()
+        missContact.textContent = 'Champ non renseigné';
+        missContact.style.color = 'red';
+    } else if (textValid.test(contact.value) == false) {
+        event.preventDefault();
+        missContact.textContent = 'Format incorrect';
+        missContact.style.color = 'red';
+    } else {
+        missContact.textContent = 'Ok';
+        missContact.style.color = 'green';
+    }
+};
+//vérification du champ adresse
+function addressCheck() {
+    if (address.validity.valueMissing) {
+        event.preventDefault()
+        missAddress.textContent = 'Champ non renseigné';
+        missAddress.style.color = 'red';
+    } else if (textValid.test(address.value) == false) {
+        event.preventDefault();
+        missAddress.textContent = 'Format incorrect';
+        missAddress.style.color = 'red';
+    } else {
+        missAddress.textContent = 'Ok';
+        missAddress.style.color = 'green';
+    }
+};
+// vérification du champ code postal
+function postalCodeCheck() {
+    if (postalCode.validity.valueMissing) {
+        event.preventDefault()
+        missPostalCode.textContent = 'Champ non renseigné';
+        missPostalCode.style.color = 'red';
+    } else if (postalCodeValid.test(postalCode.value) == false) {
+        event.preventDefault();
+        missPostalCode.textContent = 'Format incorrect';
+        missPostalCode.style.color = 'red';
+    } else {
+        missPostalCode.textContent = 'Ok';
+        missPostalCode.style.color = 'green';
+    }
+};
+// vérification du champ ville
+function cityCheck() {
+    if (city.validity.valueMissing) {
+        event.preventDefault()
+        missCity.textContent = 'Champ non renseigné';
+        missCity.style.color = 'red';
+    } else if (textValid.test(city.value) == false) {
+        event.preventDefault();
+        missCity.textContent = 'Format incorrect';
+        missCity.style.color = 'red';
+    } else {
+        missCity.textContent = 'Ok';
+        missCity.style.color = 'green';
+    }
+};
+// vérification du champ email
+function mailCheck() {
+    if (mail.validity.valueMissing) {
+        event.preventDefault()
+        missMail.textContent = 'Champ non renseigné';
+        missMail.style.color = 'red';
+    } else if (mailValid.test(mail.value) == false) {
+        event.preventDefault();
+        missMail.textContent = 'Format incorrect';
+        missMail.style.color = 'red';
+    } else {
+        missMail.textContent = 'Ok';
+        missMail.style.color = 'green';
+    }
+};
+// vérification du champ téléphone
+function phoneCheck() {
+    if (phone.validity.valueMissing) {
+        event.preventDefault()
+        missPhone.textContent = 'Champ non renseigné';
+        missPhone.style.color = 'red';
+    } else if (phoneValid.test(phone.value) == false) {
+        event.preventDefault();
+        missPhone.textContent = 'Format incorrect';
+        missPhone.style.color = 'red';
+    } else {
+        missPhone.textContent = 'Ok';
+        missPhone.style.color = 'green';
+    }
+};
+//vérification du champ environnement
+function textEnvironmentCheck() {
+    if (textEnvironment.validity.valueMissing) {
+        event.preventDefault()
+        missTextEnvironment.textContent = 'Champ non renseigné';
+        missTextEnvironment.style.color = 'red';
+    } else if (textValid.test(environment.value) == false) {
+        event.preventDefault();
+        missTextEnvironment.textContent = 'Format incorrect';
+        missTextEnvironment.style.color = 'red';
+    } else {
+        missTextEnvironment.textContent = 'Ok';
+        missTextEnvironment.style.color = 'green';
+    }
+};
+function getSelect() {
+    // récupération de l'index de l'option choisi dans la liste déroulante
+    var choice = environment.selectedIndex;
+    var value = environment.options[choice].text;
+    textEnvironment.append(value + ', ');
+};
+
+                       </code>
+                   </pre>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="assets/js/jquery-3.3.1.js"></script>
+    <script src="assets/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

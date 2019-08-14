@@ -1,0 +1,27 @@
+.nav {
+    background: black;
+    padding: 20px;  
+}
+nav a {
+    color: white;
+}
+.img {
+    height: auto;
+    width: 100%;
+}
+ul li a {
+    color: white;    
+}
+ul {
+    display: flex;
+}
+.li1 {
+    margin-left: 1em;
+}
+aside {
+    min-width: 30%;
+    background: grey;
+}
+.flex {
+    display: flex;
+}

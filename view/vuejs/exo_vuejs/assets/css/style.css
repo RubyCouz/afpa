@@ -1,0 +1,12 @@
+.bg {
+background: url('../img/vuejs.jpeg') no-repeat;
+background-size: cover;
+background-position: center;
+background-position-y: 0px;
+}
+.result {
+    margin-top: 25px;
+}
+.form {
+    margin-top: 25px;
+}

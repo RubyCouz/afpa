@@ -1,0 +1,19 @@
+.menu {
+    background: #FFFFFF;  
+    box-shadow: -1px 14px 25px -6px #ffffff;
+}
+body {
+    background: #000000;    
+}
+label {
+    color: #FFFFFF;
+}
+#label1 {
+    color: #FFFFFF;
+}
+.grid-container{
+    margin-top: 20px;
+}
+.button {
+    background: rgba(255, 79, 79, 0.75);
+}

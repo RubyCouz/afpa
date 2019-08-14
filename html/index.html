@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- header (barre de navigation -->
+    <header>
+
+
+    </header>
+    <h1>Titre 1</h1>
+    <!-- section -->
+    <section>
+        <h2>Titre 2</h2>
+        <article>
+            <p>un paragraphe</p>
+           <a href="https://getbootstrap.com/" title="Liens vers Bootstrap" target="_blank">Bootstrap</a>
+           <!-- target="_blank" -> ouvre le lien dans un nouvel onglet -->
+        <img src="assets/img/mise_en_page.png" alt="Schéma d'une mise en page en html" title="Mise en page html">
+        </article>
+        <h2>titre 2bis</h2>
+        <article>
+            <p>du texte...</p>
+            <!-- liste non-ordonnée -->
+            <ul style="list-style-type: square;">
+                <li>Liste 1</li>
+                <li>Liste 2</li>
+                <li>Liste 3</li>
+            </ul>
+        </article>
+    </section>
+    <section>
+        <h2>titre 2</h2>
+        <article>
+            <!-- liste ordonnée -->
+            <ol type="A">
+                <li>liste 1</li>
+                <li>liste 2</li>
+                <li>liste 3</li>
+            </ol>
+        </article>
+        <h3>titre moins important</h3>
+        <article>
+            <p>blablabla</p>
+        </article>
+        <aside>
+
+        </aside>
+    </section>
+    <h3>Titre 3</h3>
+    <h4>Titre 4</h4>
+    <h5>Titre 5</h5>
+    <p>Un autre paragraphe</p>
+    <h6>Titre 6</h6>
+    <!-- tableau -->
+    <table>
+        <thead>
+            <tr>
+                <th>col 1</th>
+                <th>col 2</th>
+                <th>col 3</th>
+                <th>col 4</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>col 1</td>
+                <td>col 2</td>
+                <td>col 3</td>
+                <td>col 3</td>
+            </tr>
+            <tr>
+                <td>col 1 bis</td>
+                <td>col 2 bis</td>
+                <td>col 3 bis</td>
+                <td>col 3 bis</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td>col 1</td>
+                <td>col 2</td>
+                <td colspan=2>col 3</td>
+            </tr>
+        </tfoot>
+    </table>
+    <!-- formulaire-->
+    <form action="#" method="GET">
+        <!-- possibilité d'utiliser la méthode post pour la validation du formulaire -->
+        <fieldset>
+            <legend>Formulaire 1</legend>
+
+            <label for="name">Nom :</label>
+            <input type="email" name="name" id="name" placeholder="Nom de famille">
+            
+            <label for="content">Commentaires</label>
+            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+        </fieldset>
+        <fieldset>
+            <legend>Formulaire 2</legend>
+            <label for="list">Liste</label>
+            <select name="list" id="list">
+                <option value="list1">liste 1</option>
+                <option value="list2">liste 2</option>
+                <option value="list3">liste 3</option>
+                <option value="list4">liste 4</option>
+            </select>
+            <label for="check">Case à cocher :</label>
+            <input type="checkbox" name="check" id="check" checked>
+            <label for="radio">Bouton radio :</label>
+            <input type="radio" name="radio" id="radio" value="1">
+            <input type="radio" name="radio" id="radio" value="2" disabled>
+            <label for="file">Parcourir</label>
+            <input type="file" name="file" id="file">
+        </fieldset>
+        <input type="submit" name="submit" value="Valider">
+
+    </form>
+
+    <!-- footer -->
+    <footer>
+        <ul style="list-style-type: square;">
+            <li>Liste 1</li>
+            <li>Liste 2</li>
+            <li>Liste 3</li>
+        </ul>
+    </footer>
+
+
+
+
+
+
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Afficher du texte</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+</head>
+
+<body>
+
+
+    <script>
+        // déclaration des variables 
+        var lastName = prompt('Entrez votre nom :'); // prompt (ou window.prompt) demande une saisie à l'utilisateur
+        var gender = window.confirm('Êtes-vous un homme?'); // confirm => demande une confirmation à l'utilisateur
+       // début de la condition
+        if (gender == true) {
+            // Nouvelle attribution de valeur à la variable gender
+            gender = 'Monsieur';
+        } else {
+             // Nouvelle attribution de valeur à la variable gender
+            gender = 'Madame';
+        }
+// alert -> affiche un message à l'utilisateur
+        alert('Bonjour ' + gender + ' ' + name + '.' + '\n' + 'Bienvenue sur notre site!');
+    </script>
+
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

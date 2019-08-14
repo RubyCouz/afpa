@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Jarditou</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <body>
+        <header>
+            <p>
+                <img src="img/jarditou_logo.jpg" alt="image du logo de jarditou" title="Logo jarditou"
+                     class="logo" />
+            </p>
+            <p>
+                La qualité depuis 70 ans
+            </p>
+            <nav class="nav">
+                <ul>
+                    <li class="li1"><a href="accueil.html">Accueil</a></li>
+                    <li class="li1"><a href="tableau.html">Tableau</a></li>
+                    <li class="li1"><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div>
+                <img src="img/promotion.jpg" alt="bannière de promotion jarditou" title="Promo" class="promo" />
+            </div>
+        </header>
+        <form action="#" method="POST">
+            <fieldset>
+                <legend>Vos Coordonnées</legend>
+                <div>
+                    <label for="lastname">Votre nom :</label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Nom de famille" />
+                </div>
+                <div>
+                    <label for="firstname">Votre prénom :</label>
+                    <input type="text" name="firstname" id="firstname" placeholder="Prénom" />
+                </div>
+                <div>
+                    <label for="birthdate">Votre date de naissance :</label>
+                    <input type="date" name="birthdate" id="birthdate" placeholder="xx/xx/xxxx" />
+                </div>
+                <div>
+                    <label for="address">Votre adresse</label>
+                    <input type="text" name="address" id="address" placeholder="Adresse" />
+                </div>
+                <div>
+                    <label for="city">Votre ville :</label>
+                    <input type="text" name="city" id="city" placeholder="Ville" />
+                </div>
+                <div>
+                    <label for="postalCode">Votre code potal</label>
+                    <input type="text" name="postalCode" id="postalCode" placeholder="Code postal" />
+                </div>
+                <div>
+                    <div>
+                        <label for="mail">Votre e-mail :</label>
+                        <input type="email" name="mail" id="mail" placeholder="name@example.com" />
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div>
+                    <div>
+                        <input type="radio" name="gender" id="man" value="homme" />
+                        <label for="man">Vous êtes un homme</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="gender" id="woman" value="femme" />
+                        <label for="woman">Vous êtes une femme</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div>
+                <label for="job"></label>
+                <select name="job">
+                    <option disabled selected value="0">Choisissez la formation suivi</option>
+                    <option value="1">Développeur web, web mobile</option>
+                    <option value="2">Concepteur développeur d'application</option>
+                    <option value="3">Autre ...</option>
+                </select>
+            </div>
+            <div>
+                <label for="other">Si vous avez répondu autre, précisez :</label>
+                <input type="text" name="other" id="other" placeholder="Précisez" />
+            </div>
+            <div>
+                <label for="money"></label>
+                <select id="money" name="money">
+                    <option disabled selected value="0">Subvention mensuelle</option>
+                    <option value="1">&lt300</option>
+                    <option value="2">&lt750</option>
+                    <option value="3">&lt1000</option>
+                </select>
+            </div>
+            <div>
+                <label for="year">En quelle année avez-vous suivi les stage AFPA?</label>
+                <input type="date" name="year" id="year" placeholder="xx/xx/xxxx">
+            </div>
+            <div>
+                <label for="comments"></label>
+                <textarea id="comments" name="comments" rows="3">Vos commentaires</textarea>
+                <span id="missComment"></span>
+            </div>
+            <div>
+                <div>
+                    <input type="buttton" value="Envoyer" id="submit" />
+                </div>
+                <div>
+                    <input type="reset" name="reset" value="Effacer" />
+                </div>
+            </div>
+        </form>
+        <hr />
+        <footer>
+            <nav class="nav">
+                <ul>
+                    <li class="li1"><a href="">Mentions légales</a></li>
+                    <li class="li1"><a href="">Horaires</a></li>
+                    <li class="li1"><a href="">Plan du site</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </body>
+
+</html>

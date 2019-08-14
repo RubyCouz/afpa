@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-qm-12">
+                <template>
+                    <div>
+                        <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+                            <b-form-group id="exampleInputGroup1" label="Email address:" label-for="exampleInput1"
+                                description="We'll never share your email with anyone else.">
+                                <b-form-input id="exampleInput1" type="email" v-model="form.email" required
+                                    placeholder="Enter email" />
+                            </b-form-group>
+
+                            <b-form-group id="exampleInputGroup2" label="Your Name:" label-for="exampleInput2">
+                                <b-form-input id="exampleInput2" type="text" v-model="form.name" required
+                                    placeholder="Enter name" />
+                            </b-form-group>
+
+                            <b-form-group id="exampleInputGroup3" label="Food:" label-for="exampleInput3">
+                                <b-form-select id="exampleInput3" :options="foods" required v-model="form.food" />
+                            </b-form-group>
+
+                            <b-form-group id="exampleGroup4">
+                                <b-form-checkbox-group v-model="form.checked" id="exampleChecks">
+                                    <b-form-checkbox value="me">Check me out</b-form-checkbox>
+                                    <b-form-checkbox value="that">Check that out</b-form-checkbox>
+                                </b-form-checkbox-group>
+                            </b-form-group>
+
+                            <b-button type="submit" variant="primary">Submit</b-button>
+                            <b-button type="reset" variant="danger">Reset</b-button>
+                        </b-form>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+    <script>
+      
+    </script>
+
+    <script src="https://unpkg.com/@babel/polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

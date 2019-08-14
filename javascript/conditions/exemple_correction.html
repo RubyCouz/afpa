@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang=fr>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Connexion aux bases de données</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/css/uikit.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-center">
+            <div class="uk-navbar-center-left">
+                <div>
+                    <ul class="uk-navbar-nav">
+                        <li>
+                            <a href="atelier1.php"> exo </a>
+                        </li>
+                        <li>
+                            <a href="atelier2.php"> exo </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a class="uk-navbar-item uk-logo" href="#"> titre </a>
+            <div class="uk-navbar-center-right">
+                <div>
+                    <ul class="uk-navbar-nav">
+                        <li>
+                            <a href="atelier3.php"> exo </a>
+                        </li>
+                        <li>
+                            <a href="atelier4.php"> exo </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- corps de la page -->
+    <div class="uk-container">
+        <h1>titre</h1>
+        <hr class="uk-divider-icon">
+        <!-- début accordéon -->
+        <ul uk-accordion="multiple: true">
+            <li class="uk-open">
+                <a class="uk-accordion-title" href="#">sous-titre</a>
+                <div class="uk-accordion-content">
+                    texte
+                </div>
+                <hr class="uk-divider-icon">
+            </li>
+            <li>
+                <a class="uk-accordion-title" href="#">sous-titre</a>
+                <div class="uk-accordion-content">
+                    <pre>
+                        <code class="">
+      code
+                        </code>
+                    </pre>
+                </div>
+                <hr class="uk-divider-icon">
+            </li>
+            <li>
+                <a class="uk-accordion-title" href="#">sous-titre</a>
+                <div class="uk-accordion-content">
+                    <pre>
+                        <code class="">
+
+                        </code> 
+                    </pre>
+                </div>
+                <hr class="uk-divider-icon">
+            </li>
+            <li>
+                <a class="uk-accordion-title" href="#">sous-titre</a>
+                <div class="uk-accordion-content">
+                    <div>
+                        <pre>
+                            <code class="">
+
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+                <hr class="uk-divider-icon">
+            </li>
+            <li>
+                <a class="uk-accordion-title" href="#">sous-titre</a>
+                <div class="uk-accordion-content">
+                    <pre>
+                        <code class="">
+
+                        </code>
+                    </pre>
+                </div>
+                <hr class="uk-divider-icon">
+            </li>
+        </ul>
+    </div>
+
+    <script src="../assets/js/jquery-3.3.1.js"></script>
+    <script src="../assets/js/uikit.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

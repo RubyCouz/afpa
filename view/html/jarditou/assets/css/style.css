@@ -1,0 +1,14 @@
+.logo {
+width: 200px;
+height: auto;
+}
+.promo {
+width: 100%;
+height: auto;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  
