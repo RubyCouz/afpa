@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
-    // -------------------------------------------------------------------------
-    // js fonctionnement du site
-    // -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
+// js fonctionnement du site
+// -------------------------------------------------------------------------
 
-    // Navbar
+// Navbar
     $('.sidenav').sidenav();
     // effet sur la navbar et sur la barre des tabs (transparentes => opaques)
     $(window).scroll(function () {
@@ -37,7 +37,8 @@ $(document).ready(function () {
     $('.materialboxed').materialbox();
     //modal
     $('.modal').modal();
-
+// select
+    $('select').formSelect();
     // -------------------------------------------------------------------------
     // js execution des exo
     // -------------------------------------------------------------------------
@@ -46,26 +47,26 @@ $(document).ready(function () {
      * Afficher texte
      */
     $('#runFirstExo').click(function () {
-        // déclaration des variables 
+// déclaration des variables 
         var lastName = window.prompt('Entrez votre nom :'); // prompt (ou window.prompt) demande une saisie à l'utilisateur
         var firstname = window.prompt('Entrez votre prénom :'); // prompt (ou window.prompt) demande une saisie à l'utilisateur
         var gender = window.confirm('Êtes-vous un homme?'); // confirm => demande une confirmation à l'utilisateur
         // début de la condition
         if (gender == true) {
-            // Nouvelle attribution de valeur à la variable gender
+// Nouvelle attribution de valeur à la variable gender
             gender = 'Monsieur';
         } else {
-            // Nouvelle attribution de valeur à la variable gender
+// Nouvelle attribution de valeur à la variable gender
             gender = 'Madame';
         }
-        // alert -> affiche un message à l'utilisateur
+// alert -> affiche un message à l'utilisateur
         window.alert('Bonjour ' + gender + ' ' + lastName + ' ' + firstname + '.' + '\n' + 'Bienvenue sur notre site!');
     });
     /**
      * Pair ou impair
      */
     $('#runPairExo').click(function () {
-        // déclaration des variables utiles
+// déclaration des variables utiles
         var divisor = 2;
         var number = parseInt(window.prompt('Saisissez un nombre :'));
         var result = number % divisor;
@@ -101,7 +102,7 @@ $(document).ready(function () {
         /**
          * déclarer les variables dont on aura besoin
          */
-        // demande la saisie de l'année de naissance de l'utilisateur
+// demande la saisie de l'année de naissance de l'utilisateur
         var birthYear = parseInt(window.prompt('Veuillez saisir votre année de naissance :'));
         // on récupère l'année courante:
         // création de l'objet date -> récupère la date courrante 
@@ -114,7 +115,7 @@ $(document).ready(function () {
         if (isNaN(birthYear)) {
             alert('Veuillez saisir une année valide svp!'); // information de l'erreur
         } else {
-            // condition determinant si l'utilisateur est  majeur ou mineur
+// condition determinant si l'utilisateur est  majeur ou mineur
             if (age >= 18) {
                 alert('Vous avez ' + age + ' ans.');
                 alert('Vous êtes donc majeur.');
@@ -125,7 +126,7 @@ $(document).ready(function () {
 
     });
     $('#runCalculExo').click(function () {
-        // déclaration des variables
+// déclaration des variables
         var firstNumber = parseFloat(window.prompt('Saisisez un nombre'));
         var operator = window.prompt('Saisisez un opérateur');
         var secondNumber = parseFloat(window.prompt('Saisisez un nombre'));
@@ -133,11 +134,11 @@ $(document).ready(function () {
         if (isNaN(firstNumber)) {
             alert('Veuillez saisir un nombre valide svp!'); // information de l'erreur
         }
-        // conditions vérifant la validité du second nombre
+// conditions vérifant la validité du second nombre
         if (isNaN(secondNumber)) {
             alert('Veuillez saisir un nombre valide svp!'); // information de l'erreur
         }
-        // début des conditions vérifiant les opérateurs
+// début des conditions vérifiant les opérateurs
         if (operator == '+') {
             alert(firstNumber + secondNumber);
         } else if (operator == '-') {
@@ -145,7 +146,7 @@ $(document).ready(function () {
         } else if (operator == '*') {
             alert(firstNumber * secondNumber);
         } else if (operator == '/') {
-            // on vérifie que le second nombre n'est pas égale à 0
+// on vérifie que le second nombre n'est pas égale à 0
             if (secondNumber == 0) {
                 alert('Impossible d\'effectuer une division par 0');
             } else {
@@ -157,7 +158,7 @@ $(document).ready(function () {
         }
     });
     $('#runCalculExoBis').click(function () {
-        // décalration des variables utiles
+// décalration des variables utiles
 
         var firstNumber = parseFloat(window.prompt('Saisisez un nombre'));
         if (isNaN(firstNumber)) {
@@ -168,10 +169,10 @@ $(document).ready(function () {
         if (isNaN(secondNumber)) {
             alert('Veuillez saisir un nombre valide svp!'); // information de l'erreur
         }
-        // condition vérifiant le signe opératoire
-        // conditions vérifant la validité du second nombre
+// condition vérifiant le signe opératoire
+// conditions vérifant la validité du second nombre
         switch (operator) {
-            // cas ou le signe opératoire est -
+// cas ou le signe opératoire est -
             case '-':
                 alert(firstNumber + '-' + secondNumber + ' = ' + (firstNumber - secondNumber));
                 break;
@@ -220,7 +221,7 @@ $(document).ready(function () {
                 if (salary < 1200) {
                     tot = tot + 10;
                 }
-                // si la participation est supérieur à 50, on la plafonne à 50 
+// si la participation est supérieur à 50, on la plafonne à 50 
                 if (tot > 50) {
                     tot = 50;
                 }
@@ -233,7 +234,7 @@ $(document).ready(function () {
                 if (salary < 1200) {
                     tot = tot + 10;
                 }
-                // si la participation est supérieur à 50, on la plafonne à 50 
+// si la participation est supérieur à 50, on la plafonne à 50 
                 if (tot > 50) {
                     tot = 50;
                 }
@@ -243,7 +244,7 @@ $(document).ready(function () {
         alert('La participation patronnale sera de ' + tot + '%');
     });
     $('#runSaisieExo').click(function () {
-        // déclration des variables
+// déclration des variables
         var firstname = '';
         var count = 1;
         do {
@@ -260,42 +261,42 @@ $(document).ready(function () {
         } while (firstname !== null && firstname !== '');
     });
     $('#runIntegerExo').click(function () {
-        // déclaration des variables
+// déclaration des variables
         var number;
         var i = 0;
         // on vérifie la saisie de l'utilisateur
         // tant que la saisie n'est pas un nombre
         while (isNaN(number)) {
-            // on renouvèle la saisie
+// on renouvèle la saisie
             number = parseInt(window.prompt('Saisissez un nombre :'));
         }
         /**
          * 1ere methode
          */
 
-        // début de la boucle for affichant les entiers inférieurs à number
+// début de la boucle for affichant les entiers inférieurs à number
         for (i = 0; i < number; i++) {
             console.log(i);
         }
     });
     $('#runSumExo').click(function () {
-        // déclaration des variables
+// déclaration des variables
         var n1 = parseInt(window.prompt('Saisissez un premier nombre :'));
         var sum = 0;
         // on vérifie la saisie de l'utilisateur
         // tant que la saisie n'est pas un nombre
         if (isNaN(n1)) {
-            // on renouvèle la saisie
+// on renouvèle la saisie
             while (isNaN(n1)) {
-                // on renouvèle la saisie
+// on renouvèle la saisie
                 n1 = parseInt(window.prompt('Saisissez un premier nombre :'));
             }
         }
         var n2 = parseInt(window.prompt('Saisissez un second nombre :'));
         if (isNaN(n2)) {
-            // on renouvèle la saisie
+// on renouvèle la saisie
             while (isNaN(n2)) {
-                // on renouvèle la saisie
+// on renouvèle la saisie
                 n2 = parseInt(window.prompt('Saisissez un second nombre :'));
             }
 
@@ -304,16 +305,16 @@ $(document).ready(function () {
         // conditions vérifiant les valeurs saisies 
         // si n2 (2eme saisie) est supérieur n1 (première saisie)
         if (n2 > n1) {
-            // boucle permettant de parcourir les valeurs entre n1 et n2
+// boucle permettant de parcourir les valeurs entre n1 et n2
             for (i = n1; i <= n2; i++) {
-                //ajout de la valeur i à sum
+//ajout de la valeur i à sum
                 sum += i;
             }
-            // si n2 (2eme saisie) est inférieur n1 (première saisie)
+// si n2 (2eme saisie) est inférieur n1 (première saisie)
         } else {
-            // boucle permettant de parcourir les valeurs entre n2 et n1
+// boucle permettant de parcourir les valeurs entre n2 et n1
             for (i = n2; i <= n1; i++) {
-                //ajout de la valeur i à sum
+//ajout de la valeur i à sum
                 sum += i;
             }
         }
@@ -327,56 +328,55 @@ $(document).ready(function () {
         // on vérifie la saisie de l'utilisateur
         // tant que la saisie n'est pas un nombre
         while (isNaN(number)) {
-            // on renouvèle la saisie
+// on renouvèle la saisie
             number = parseInt(window.prompt('Saisissez un premier nombre :'));
         }
         while (number != 0) {
             total += number;
-            i++
-            average = total / i
+            i++;
+            average = total / i;
             console.log('somme : ' + total);
             console.log('moyenne : ' + average);
-            number = parseInt(window.prompt('Saisir un entier :'))
+            number = parseInt(window.prompt('Saisir un entier :'));
         }
     });
     $('#runMultipleExo').click(function () {
-        // définition des variables
+// définition des variables
         var X = parseInt(window.prompt('Saisissez un entier :'));
         while (isNaN(X)) {
-            // on renouvèle la saisie
+// on renouvèle la saisie
             X = parseInt(window.prompt('Saisissez un premier nombre :'));
         }
         var N = parseInt(window.prompt('Saisissez le nombre de multiple :'));
         // on vérifie la saisie de l'utilisateur
         // tant que la saisie n'est pas un nombre
         while (isNaN(N)) {
-            // on renouvèle la saisie
+// on renouvèle la saisie
             N = parseInt(window.prompt('Saisissez un multiiple valide :'));
         }
         var total = 0;
         // début de la boucle
         for (i = 0; i <= N; i++) {
-            // calcul, et assignation du resultat à la variable total
+// calcul, et assignation du resultat à la variable total
             total = i * X;
             // affichage
             console.log(X + ' x ' + i + ' = ' + total);
-
         }
     });
     $('#runVoyelleExo').click(function () {
-        // définition des variables
+// définition des variables
         var word = window.prompt('Saisir un mot :').toLowerCase();
         // on vérifie la saisie de l'utilisateur
         // tant que la saisie n'est pas un nombre
         while (!isNaN(word)) {
-            // on renouvèle la saisie
+// on renouvèle la saisie
             word = parseInt(window.prompt('Saisissez un mot :'));
         }
         var wordLength = word.length;
         var count = 0;
         // début de la boucle qui parcourir le mot
         for (i = 0; i < wordLength; i++) {
-            // utilisation d'un switch pour vérifier le cas de chaque voyelle
+// utilisation d'un switch pour vérifier le cas de chaque voyelle
             switch (word[i]) {
                 case 'a':
                 case 'e':
@@ -391,85 +391,84 @@ $(document).ready(function () {
                     ' ';
             }
         }
-        // affichage
+// affichage
         console.log('nombre de voyelle dans ' + word + ' : ' + count);
-
     });
     $('#runPrimaryExo').click(function () {
-        // déclaration des variables
+// déclaration des variables
         var n = 2;
         var number = parseInt(window.prompt('Saisir un nombre :'));
         // on vérifie la saisie de l'utilisateur
         // tant que la saisie n'est pas un nombre
         while (isNaN(number)) {
-            // on renouvèle la saisie
+// on renouvèle la saisie
             number = parseInt(window.prompt('Saisissez un premier nombre :'));
         }
         var divide = 0;
         var bool = true;
         // boucle parcourant les entiers entre n et racine carré du nombre saisi
         while (n <= Math.sqrt(number)) {
-            // on divise notre nombre par n
+// on divise notre nombre par n
             divide = number / n;
             console.log('resultat: ' + divide);
             // si le resultat est différent de 0 et que le reste est égale à 0
             if ((divide != 0) && (number % n == 0)) {
-                // on definit la variable bool à false
+// on definit la variable bool à false
                 bool = false;
                 // et arrêt de la boucle
                 break;
             }
-            // incrémentation de n
+// incrémentation de n
             n++;
         }
-        // si le resultat est différent de 0 et que le reste est égale à 0
+// si le resultat est différent de 0 et que le reste est égale à 0
         if (bool == false) {
-            // information
+// information
             alert('Ce nombre n\'est pas premier');
         } else {
-            // information
+// information
             alert('Ce nombre est premier');
         }
     });
     $('#runMagicExo').click(function () {
-        // définition des variables utiles pour l'exécution du code
+// définition des variables utiles pour l'exécution du code
         var magic = 0;
         var userNumber = 0;
         var question = true;
         var count = 0;
         // début de la boucle permettant de rejouer
         while (question == true) {
-            //definition d'un nombre aléatoire
+//definition d'un nombre aléatoire
             magic = parseInt(Math.random() * 100);
             //début de la boucle comprenant les conditions de comparaison du nbre choisi avec l'utilisateur
             while (userNumber != magic) {
-                //demande de saisie
+//demande de saisie
                 userNumber = window.prompt('Saisissez un nombre :');
                 // on vérifie la saisie de l'utilisateur
                 // tant que la saisie n'est pas un nombre
                 while (isNaN(userNumber)) {
-                    // on renouvèle la saisie
+// on renouvèle la saisie
                     userNumber = parseInt(window.prompt('Saisissez un nombre :'));
                 }
-                // si les 2 nombres sont identiques
+// si les 2 nombres sont identiques
                 if (userNumber == magic) {
-                    // affichage d'un message, plus le nombre d'essais
+// affichage d'un message, plus le nombre d'essais
                     alert('Félicitation!! Vous avez trouvé la bonne réponse : ' + magic + ' \nNombre de coup nécessaire : ' + (parseInt(count) + 1));
                 }
-                // si le nombre random est plus grand
+// si le nombre random est plus grand
                 if (userNumber < magic) {
-                    // on informe l'utilisateur du résultat
+// on informe l'utilisateur du résultat
                     alert('Plus grand');
                     count++;
                 }
-                // si le nombre random est plus petit
+// si le nombre random est plus petit
                 if (userNumber > magic) {
-                    // on informe l'utilisateur du résultat
+// on informe l'utilisateur du résultat
                     alert('Plus petit');
                     count++;
                 }
             }
-            // demande pour rejouer
+// demande pour rejouer
             question = window.confirm('Voulez-vous rejouer?');
             // si l'utilisateur refuse
             if (question == false) {
@@ -479,17 +478,17 @@ $(document).ready(function () {
     });
     $('#runSortExo').click(function () {
 
-        // fonction demandant à l'utilisateur la saisie d'un entier
+// fonction demandant à l'utilisateur la saisie d'un entier
         function getInteger() {
             integer = parseInt(window.prompt('Saisissez une taille de tableau :')); //définition de la taille du tableau
         }
-        // fonction initialisant le tableau
+// fonction initialisant le tableau
         function initTab(integer) {
-            // déclaration des variables
+// déclaration des variables
             array = new Array(integer); // création du tableau
             array.splice(0, integer);
         }
-        // fonction permettant le remplissage du tableau
+// fonction permettant le remplissage du tableau
         function saisieTab(integer, array) {
             var content = '';
             var count = 0;
@@ -518,7 +517,7 @@ $(document).ready(function () {
         alert('tableau après tri : ' + array.join());
     });
     $('#runCreateExo').click(function () {
-        //taille du tableau renseigné par l'utilisateur
+//taille du tableau renseigné par l'utilisateur
         var arrayLength = parseInt(window.prompt('Définissez la taille de votre tableau :'));
         // construciton du tableau selon la taille renseignéé
         var array = new Array(arrayLength);
@@ -531,21 +530,21 @@ $(document).ready(function () {
             content = window.prompt('Indiquer une valeur à entrer dans le tableau :');
             array.push(content);
         }
-        // affichage du tableau
+// affichage du tableau
         alert('votre tableau :' + array.join(', '));
     });
     $('#runArrayExo').click(function () {
-        // fonction demandant à l'utilisateur la saisie d'un entier
+// fonction demandant à l'utilisateur la saisie d'un entier
         function getInteger() {
             integer = parseInt(window.prompt('Saisissez une taille de tableau :')); //définition de la taille du tableau
         }
-        // fonction initialisant le tableau
+// fonction initialisant le tableau
         function initTab(integer) {
-            // déclaration des variables
+// déclaration des variables
             array = new Array(integer); // création du tableau
             array.splice(0, integer);
         }
-        // fonction permettant le remplissage du tableau
+// fonction permettant le remplissage du tableau
         function saisieTab(integer, array) {
             var content = '';
             var count = 0;
@@ -556,18 +555,18 @@ $(document).ready(function () {
             }
         }
 
-        // fontion affichant le tableau
+// fontion affichant le tableau
         function afficheTab(array) {
-            //affichage du tableau
+//affichage du tableau
             alert(array.join(', '));
         }
-        // fonction permettant la recherche de la valeur d'un index dans le tableau
+// fonction permettant la recherche de la valeur d'un index dans le tableau
         function rechercheTab(array) {
             var index = parseInt(window.prompt('Saisissez un index :'))
             var search = array[index];
             alert(search);
         }
-        // fonction affichant la valeur maximale et la moyenne de l'ensemble des valeurs du tableau
+// fonction affichant la valeur maximale et la moyenne de l'ensemble des valeurs du tableau
         function infoTab(array) {
             var max = Math.max(...array);
             var sum = 0;
@@ -581,7 +580,7 @@ $(document).ready(function () {
             alert('Valeurs max : ' + max);
         }
 
-        // appel des fonctions
+// appel des fonctions
         getInteger();
         initTab(integer);
         saisieTab(integer, array);
@@ -604,9 +603,8 @@ $(document).ready(function () {
             choice = parseInt(window.prompt('choisissez une option :\n 1-Afficher le contenu du tableau \n 2-Afficher un index choisi \n 3-Afficher le maximum et la moyenne des postes saisis'));
         }
     });
-
     $('#runEvent1').click(function () {
-        // ciblage des élements 
+// ciblage des élements 
         var text = document.getElementById('text');
         var submit = document.getElementById('runEvent1');
         // déclenchement de l'évènement
@@ -632,7 +630,7 @@ $(document).ready(function () {
         var submit = document.getElementById('submit');
         // si le champs est vide
         if (userNumber.validity.valueMissing) {
-            // on bloque l'nvoie du formulaire
+// on bloque l'nvoie du formulaire
             event.preventDefault();
             // affichage message d'erreur
             label.textContent = 'Veuillez saisir un nombre';
@@ -640,7 +638,7 @@ $(document).ready(function () {
             // incrémentation du compte de coups
             count++;
         } else {
-            // si le nombre saisi par l'utilisateur est égal au nombre magic
+// si le nombre saisi par l'utilisateur est égal au nombre magic
             if (parseInt(userNumber.value) == magic) {
                 label.textContent = 'Bravo, vous avez trouvé le nombre magic ' + magic + ' en ' + count + ' coup(s)!!!';
                 label.style.color = 'green';
@@ -658,7 +656,6 @@ $(document).ready(function () {
         }
 
     });
-
     /**
      * Ajax vérification de l'existence d'un login
      */
@@ -673,5 +670,105 @@ $(document).ready(function () {
         },
                 'HTML');
     });
+    /**
+     * Vérification du formulaire jarditou ajout produit
+     */
+    var textValid = /^[a-zA-Z\-\déèàçùëüïô äâêûîô#&]+$/;
+    var numberValid = /^[\d]*[.]?[\d]{1,2}$/;
+    $('#ref').blur(function () {
+        if ($('#ref').val() == '') {
+            $('#ref').removeClass('invalid');
+            $('#ref').addClass('invalid');
+            $('#errorRef').html('Saisie manquante');
 
+        } else if (textValid.test($('#ref').val()) == false) {
+            $('#ref').removeClass('valid');
+            $('#ref').addClass('invalid');
+            $('#errorRef').html('Saisie incorrect');
+        } else {
+            $('#ref').removeClass('invalid');
+            $('#ref').addClass('valid');
+            $('#errorRef').html('');
+        }
+    });
+    $('#label').blur(function () {
+        if ($('#label').val() == '') {
+            $('#label').removeClass('invalid');
+            $('#label').addClass('invalid');
+            $('#errorLabel').html('Saisie manquante');
+
+        } else if (textValid.test($('#label').val()) == false) {
+            $('#label').removeClass('valid');
+            $('#label').addClass('invalid');
+            $('#errorLabel').html('Saisie incorrect');
+        } else {
+            $('#label').removeClass('invalid');
+            $('#label').addClass('valid');
+            $('#errorLabel').html('');
+        }
+    });
+    $('#color').blur(function () {
+        if ($('#color').val() == '') {
+            $('#color').removeClass('invalid');
+            $('#color').addClass('invalid');
+            $('#errorColor').html('Saisie manquante');
+
+        } else if (textValid.test($('#color').val()) == false) {
+            $('#color').removeClass('valid');
+            $('#color').addClass('invalid');
+            $('#errorColor').html('Saisie incorrect');
+        } else {
+            $('#color').removeClass('invalid');
+            $('#color').addClass('valid');
+            $('#errorColor').html('');
+        }
+    });
+    $('#stock').blur(function () {
+        if ($('#stock').val() == '') {
+            $('#stock').removeClass('invalid');
+            $('#stock').addClass('invalid');
+            $('#errorStock').html('Saisie manquante');
+
+        } else if (numberValid.test($('#stock').val()) == false) {
+            $('#stock').removeClass('valid');
+            $('#stock').addClass('invalid');
+            $('#errorStock').html('Saisie incorrect');
+        } else {
+            $('#stock').removeClass('invalid');
+            $('#stock').addClass('valid');
+            $('#errorStock').html('');
+        }
+    });
+    $('#price').blur(function () {
+        if ($('#price').val() == '') {
+            $('#price').removeClass('invalid');
+            $('#price').addClass('invalid');
+            $('#errorPrice').html('Saisie manquante');
+
+        } else if (numberValid.test($('#price').val()) == false) {
+            $('#price').removeClass('valid');
+            $('#price').addClass('invalid');
+            $('#errorPrice').html('Saisie incorrect');
+        } else {
+            $('#price').removeClass('invalid');
+            $('#price').addClass('valid');
+            $('#errorPrice').html('');
+        }
+    });
+    $('#description').blur(function () {
+        if ($('#description').val() == '') {
+            $('#description').removeClass('invalid');
+            $('#description').addClass('invalid');
+            $('#errorDesc').html('Saisie manquante');
+
+        } else if (textValid.test($('#description').val()) == false) {
+            $('#description').removeClass('valid');
+            $('#description').addClass('invalid');
+            $('#errorDesc').html('Saisie incorrect');
+        } else {
+            $('#description').removeClass('invalid');
+            $('#description').addClass('valid');
+            $('#errorDesc').html('');
+        }
+    });
 });

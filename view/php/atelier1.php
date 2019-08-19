@@ -17,9 +17,8 @@
             <div class="collapsible-header">Présentation</div>
             <div class="collapsible-body">
                 <p>
-                    Pour la réalisation de cet atelier, je ne reprendrai pas l'exemple de Jarditou avec Bootstrap, mais la construction de cette page, la méthode ne changeant pas quelque soit le contenu de votre page
+                    Pour la réalisation de cet atelier, prenons un page web se construisant de cette façon :
                 </p>
-                <p>Jusque là nous avions qu'une page web se composant de cette façon :</p>
                 <pre>
                     <code class="html">
                         <?=
@@ -150,15 +149,15 @@
                         </li>
                         <li>La balise head et son contenu :
                             <pre><code class="html"><?= htmlspecialchars('
-                <head>
-                    <meta charset="utf-8">
-                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                    <title>Connexion aux bases de données</title>
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <link rel="stylesheet" href="../assets/css/uikit.min.css">
-                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai.min.css">
-                    <link rel="stylesheet" href="../assets/css/style.css">
-                </head>') ?></code></pre>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Connexion aux bases de données</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/css/uikit.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>') ?></code></pre>
                         </li>
                         <li>La balise ouvrante body :
                             <pre><code><?= htmlspecialchars('<body>') ?></code></pre>
@@ -166,93 +165,93 @@
                     <li>La barre de navigation :
                         <pre>
                                 <code><?= htmlspecialchars('
-    <nav class="uk-navbar-container uk-margin" uk-navbar>
-        <div class="uk-navbar-center">
-            <div class="uk-navbar-center-left">
-                <div>
-                    <ul class="uk-navbar-nav">
-                        <li>
-                            <a href="atelier1.php">Atelier 1</a>
-                        </li>
-                        <li>
-                            <a href="atelier2.php">Atelier 2</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <a class="uk-navbar-item uk-logo" href="#">Connexion au Base de Données</a>
-            <div class="uk-navbar-center-right">
-                <div>
-                    <ul class="uk-navbar-nav">
-                        <li>
-                            <a href="atelier3.php">Atelier 3</a>
-                        </li>
-                        <li>
-                            <a href="atelier4.php">Atelier 4</a>
-                        </li>
-                    </ul>
-                </div>
+<nav class="uk-navbar-container uk-margin" uk-navbar>
+    <div class="uk-navbar-center">
+        <div class="uk-navbar-center-left">
+            <div>
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="atelier1.php">Atelier 1</a>
+                    </li>
+                    <li>
+                        <a href="atelier2.php">Atelier 2</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </nav> ') ?>
+        <a class="uk-navbar-item uk-logo" href="#">Connexion au Base de Données</a>
+        <div class="uk-navbar-center-right">
+            <div>
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="atelier3.php">Atelier 3</a>
+                    </li>
+                    <li>
+                        <a href="atelier4.php">Atelier 4</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav> ') ?>
                             </code> 
                         </pre>
                     </li>
                 </ul>
                 </p>
-                <p>Le fichier header.php se présentera alors de la façon suivante :</p>
+                <p>Le fichier "header.php" se présentera alors de la façon suivante :</p>
                 <pre>
                     <code>   
                         <?= htmlspecialchars('
-    <!-- début de la page html -->
-    <!DOCTYPE html>
-    <html lang=fr>
-    
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Connexion aux bases de données</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../assets/css/uikit.min.css">
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai.min.css">
-        <link rel="stylesheet" href="../assets/css/style.css">
-    </head>
-    <!-- début du corps de la page -->
-    <body>
-    <!-- en-tête de la page (header) -->
-        <header>
-    <!-- barre de navigation -->
-            <nav class="uk-navbar-container uk-margin" uk-navbar>
-                <div class="uk-navbar-center">
-                    <div class="uk-navbar-center-left">
-                        <div>
-                            <ul class="uk-navbar-nav">
-                                <li>
-                                    <a href="atelier1.php">Atelier 1</a>
-                                </li>
-                                <li>
-                                    <a href="atelier2.php">Atelier 2</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <a class="uk-navbar-item uk-logo" href="#">Connexion au Base de Données</a>
-                    <div class="uk-navbar-center-right">
-                        <div>
-                            <ul class="uk-navbar-nav">
-                                <li>
-                                    <a href="atelier3.php">Atelier 3</a>
-                                </li>
-                                <li>
-                                    <a href="atelier4.php">Atelier 4</a>
-                                </li>
-                            </ul>
-                        </div>
+<!-- début de la page html -->
+<!DOCTYPE html>
+<html lang=fr>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Connexion aux bases de données</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/css/uikit.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<!-- début du corps de la page -->
+<body>
+<!-- en-tête de la page (header) -->
+    <header>
+<!-- barre de navigation -->
+        <nav class="uk-navbar-container uk-margin" uk-navbar>
+            <div class="uk-navbar-center">
+                <div class="uk-navbar-center-left">
+                    <div>
+                        <ul class="uk-navbar-nav">
+                            <li>
+                                <a href="atelier1.php">Atelier 1</a>
+                            </li>
+                            <li>
+                                <a href="atelier2.php">Atelier 2</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </nav> 
-        </header>
-    ') ?>
+                <a class="uk-navbar-item uk-logo" href="#">Connexion au Base de Données</a>
+                <div class="uk-navbar-center-right">
+                    <div>
+                        <ul class="uk-navbar-nav">
+                            <li>
+                                <a href="atelier3.php">Atelier 3</a>
+                            </li>
+                            <li>
+                                <a href="atelier4.php">Atelier 4</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav> 
+    </header>
+') ?>
                     </code>
                 </pre>
             </div>
@@ -260,7 +259,7 @@
         <li>
             <div class="collapsible-header">Le footer</div>
             <div class="collapsible-body">
-                <p>En procédant de la même façon pour le footer (footer.php), nous obtiendrons :</p>
+                <p>En procédant de la même façon pour le footer ("footer.php"), nous obtiendrons :</p>
                 <div>
 
                     <pre>
@@ -296,8 +295,8 @@
         <li>
             <div class="collapsible-header">Réunion des fichiers "header.php" et "footer.php" dans le fichier "index.php"</div>
             <div class="collapsible-body">
-<p>
-                    Nous avons alors 3 fichiers .php à réunir : 2 fichiers au contenu constant ("header.php" et "footer.php") et un fichier au contenu changeant, que l'on nommera ici "index.php".
+                <p>
+                    Nous avons alors 3 fichiers ".php" à réunir : 2 fichiers au contenu constant ("header.php" et "footer.php") et un fichier au contenu changeant, que l'on nommera ici "index.php".
                 </p>
                 <p>
                     Pour réunir les réunir, nous allons commencer par inclure le header au début du fichier "index.php" de la manière suivante :

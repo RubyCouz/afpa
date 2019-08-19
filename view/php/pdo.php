@@ -3,12 +3,12 @@ include '../header.php';
 ?>
 <div class="row">
     <div class="col s12">
-        <ul class="tabs">
-            <li class="tab col s2 offset-s1"><a class="active" href="#cut">Séparation du code</a></li>
-            <li class="tab col s2"><a href="#connect">Connexion à la base de données et affichage du contenu d'une table</a></li>
-            <li class="tab col s2"><a href="#update">Modification</a></li>
-            <li class="tab col s2"><a href="#del">Suppression</a></li>
-            <li class="tab col s2"><a href="#add">Ajout</a></li>
+        <ul class="tabs summary">
+            <li class="tab col s2 pdo"><a class="active" href="#cut">Séparation du code</a></li>
+            <li class="tab col s2 pdo"><a href="#connect">Connexion à la base de données et affichage du contenu d'une table</a></li>
+            <li class="tab col s2 pdo"><a href="#update">Modification</a></li>
+            <li class="tab col s2 pdo"><a href="#del">Suppression</a></li>
+            <li class="tab col s2 pdo"><a href="#add">Ajout</a></li>
         </ul>
     </div>
     <div id="cut" class="col s12">

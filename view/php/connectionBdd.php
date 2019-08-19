@@ -17,7 +17,7 @@
             <div class="collapsible-header">Connexion à la base de données</div>
             <div class="collapsible-body">
                 <p>
-                    Nous allons créer ce qu'on appellera un controlleur. Pour cela nous allons créer un fichier appelé "productController.php". Ce fichier sera appelé dans notre page affichant le produit à l'aide d'un "include" :
+                    Nous allons créer ce qu'on appellera un contrôleur. Pour cela nous allons créer un fichier appelé "productController.php". Ce fichier sera appelé dans notre page affichant le produit à l'aide d'un "include" :
                 </p>
                 <pre>
                     <code class="html">                
@@ -30,7 +30,7 @@ include \'../controller/productController.php\';
                     </code>
                 </pre>
                 <p>
-                    Ce sera dans notre controlleur (dans un premier temps) où seront effectuées la connection à la base de données et les requêtes nécessaire au fonctionnement de la page.
+                    Ce sera dans notre contrôleur (dans un premier temps) où seront effectuées la connection à la base de données et les requêtes nécessaires au fonctionnement de la page.
                 </p>
                 <pre>
                     <code>
@@ -61,11 +61,11 @@ include \'../controller/productController.php\';
                 </pre>
                 <p>
                 <ul>
-                    <li>$db (ou un nom de votre choix) représente une instance de connexion à la base de données.</li>
-                    <li>mysql:host=localhost : adresse du host (serveur) où se trouve votre base de données.</li>
-                    <li>charset=utf8 : type de caractère utilisé (UTF8 ici).</li>
-                    <li>root : nom d'utilisateur de base de données (le même que sur Phpmyadmin ou heidiSQL)</li>
-                    <li>' ' : le mot de passe utilisé si vous en utilisé un.</li>
+                    <li><code>$db</code> (ou un nom de votre choix) représente une instance de connexion à la base de données.</li>
+                    <li><code>mysql:host=localhost</code> : adresse du host (serveur) où se trouve votre base de données.</li>
+                    <li><code>charset=utf8</code> : type de caractère utilisé (UTF8 ici).</li>
+                    <li><code>root</code> : nom d'utilisateur de base de données (le même que sur Phpmyadmin ou heidiSQL)</li>
+                    <li><code>' '</code> : le mot de passe utilisé si vous en utilisé un.</li>
                 </ul>
 
                 </p>
@@ -88,13 +88,14 @@ $e->getMessage()
                 '); ?>
                     </code>
                 </pre>
+                <p>Récupération du code d'erreur.</p>
             </div>
         </li>
         <li>
             <div class="collapsible-header">Affichage d'un produit</div>
             <div class="collapsible-body">
                 <p>
-                    Une fois la connexion à la base de données établie, nous pouvons alors étalbir notre requète pour demander l'affichage d'un produit à l'aide d'une requête SQL :
+                    Une fois la connexion à la base de données établie, nous pouvons alors établir notre requète pour demander l'affichage d'un produit à l'aide d'une requête SQL :
                 </p>
                 <pre>
                     <code>
@@ -109,7 +110,7 @@ $result->closeCursor();
                 </code>
                 </pre>
                 <p>
-                    On stocke dans un premier temps la requête SQL dans une variable (ici on selectionne toutes les colonnes de la table produits où la valeur de "pro_id" est égale à 7):
+                    On stocke dans un premier temps la requête SQL dans une variable (ici on sélectionne toutes les colonnes de la table "produits" où la valeur de "pro_id" est égale à 7):
                 </p>
                 <pre>
                     <code>
@@ -119,7 +120,7 @@ $query = \'SELECT * FROM `produits` WHERE `pro_id` = 7\';
                     </code>
                 </pre>
                 <p>
-                    On fait ensuite appel à la méthode (ou fonction) "query()" de l'objet $db (instance de notre connexion à la base de données) en faisant passer en argument notre requête SQL. Noous stockons le resultat dans une variable "$result" :
+                    On fait ensuite appel à la méthode (ou fonction) <code>query()</code> de l'objet <code>$db</code> (instance de notre connexion à la base de données) en faisant passer en argument notre requête SQL. Noous stockons le résultat dans une variable "$result" :
                 </p>
                 <pre>
                     <code>
@@ -131,7 +132,7 @@ $result = $db->query($query);
                     </code>
                 </pre>
                 <p>
-                    On utilise ensuite la méthode fetch() (littéralement "chercher") pour obtenir le resultat sous forme d'objet avec l'utiisation du paramêtre "PDO::FETCH_OBJ". Il existe d'autre paramêtre permettant le retour du resultat sous une autre forme qu'un objet selon vos besoins.
+                    On utilise ensuite la méthode <code>fetch()</code> (littéralement "chercher") pour obtenir le résultat sous forme d'objet avec l'utilisation du paramètre <code>PDO::FETCH_OBJ</code>. Il existe d'autres paramètres permettant le retour du résultat sous une autre forme qu'un objet selon vos besoins.
                 </p>
                 <pre>
                     <code>
@@ -143,10 +144,10 @@ $produit = $result->fetch(PDO::FETCH_OBJ);
                     </code>
                 </pre>
                 <p>
-                    A noter que dans le cadre d'un affichage de plusieurs lignes de votre base de données, on utilisera la méthode "fetchAll()
+                    A noter que dans le cadre d'un affichage de plusieurs lignes de votre base de données, on utilisera la méthode <code>fetchAll()</code>
                 </p>
                 <p>
-                    Enfin, on finis notre code avec <a class="uk-link-muted" href="http://php.net/manual/fr/pdostatement.closecursor.php" target="_blank">"closeCursor()"</a>. Ceci va clore notre "Fetch()". Notons qu'il n'est pas obligatoire de l'utiliser, selon quel gestionnaire de BDD on utilise. Par mesure de sécurité en cas de changement de gestionnaire de BDD, il est préférable de le mettre quand même.
+                    Enfin, on finit notre code avec <a href="http://php.net/manual/fr/pdostatement.closecursor.php" target="_blank">"closeCursor()"</a>. Ceci va clore notre <code>Fetch()</code>. Notons qu'il n'est pas obligatoire de l'utiliser, selon quel gestionnaire de BDD on utilise. Par mesure de sécurité en cas de changement de gestionnaire de BDD, il est préférable de le mettre quand même.
                 </p>
                 <pre>
                     <code>
@@ -205,58 +206,62 @@ $result->closeCursor();
                 </code>
                 </pre>
                 <p>
-                    L'affichage qunt à lui sera légèrement différent : ayant plusieurs lignes à afficher, nous allons devoir parcourir chaque colonne de chaque ligne, d'ou l'utilisation d'une boucle "foreach() {}" :
+                    L'affichage quant à lui sera légèrement différent : ayant plusieurs lignes à afficher, nous allons devoir parcourir chaque colonne de chaque ligne, d'ou l'utilisation d'une boucle <code>foreach() {}</code> :
                 </p>
                 <pre>
                     <code>
                         <?= htmlspecialchars('
-<table class="uk-table uk-table-striped">
-    <thead>
+<table class="stripped highlight centered responsive-table table">
+        <thead>
         <th>Photo</th>
         <th>Id</th>
         <th>Catégorie</th>
         <th>Référence</th>
         <th>Libellé</th>
+        <th>Couleur</th>
         <th>Description</th>
         <th>Prix</th>
         <th>Stock</th>
         <th>Ajout</th>
         <th>Modif</th>
         <th>Bloqué</th>
-    </thead>
-    <tbody>
-        <?php
-        foreach ($allProduct as $element) {
-            ?>
-        <tr>
-            <td>
-                <img src="../assets/img/<?= $element->pro_id . \'.\' . $element->pro_photo ?>" 
-                alt="Photo d\'illustration" title="Photo de <?= $element->pro_libelle ?>">
-            </td>
-            <td><?= $element->pro_id ?></td>
-            <td><?= $element->pro_cat_id ?></td>
-            <td><?= $element->pro_ref ?></td>
-            <td><?= $element->pro_libelle ?></td>
-            <td><?= $element->pro_description ?></td>
-            <td><?= $element->pro_prix ?></td>
-            <td><?= $element->pro_stock ?></td>
-            <td><?= $element->pro_d_ajout ?></td>
-            <td><?= $element->pro_d_modif ?></td>
-            <td><?= $element->pro_bloque ?></td>
-            <td><a href="produit.php?id=<?= $element->pro_id ?>" title="Lien vers la fiche produit"
-            class="uk-button uk-button-secondary uk-button-small">Fiche Produit</a>
-            </td>
-        </tr>
+        </thead>
+        <tbody>
             <?php
-           }
-           ?>
-    </tbody>
-</table>
+            foreach ($allProduct as $element)
+            {
+                ?>
+                <tr>
+                    <td>
+                        <img src="../../assets/img/<?= $element->pro_id . \'.\' . $element->pro_photo ?>" alt="Photo d\'illustration" title="Photo de <?= $element->pro_libelle ?>" class="pic">
+                    </td>
+                    <td><?= $element->pro_id ?></td>
+                    <td><?= $element->cat_nom ?></td>
+                    <td><?= $element->pro_ref ?></td>
+                    <td><?= $element->pro_libelle ?></td>
+                    <td><?= $element->pro_couleur ?></td>
+                    <td><?= $element->pro_description ?></td>
+                    <td><?= $element->pro_prix ?>€</td>
+                    <td><?= $element->pro_stock ?></td>
+                    <td><?= $element->pro_d_ajout ?></td>
+                    <td><?= $element->pro_d_modif ?></td>
+                    <td><?= $element->pro_bloque == 1 ? \'Oui\' : \'Non\' ?></td>
+                    <td><a href="produit.php?id=<?= $element->pro_id ?>" title="Lien vers la fiche produit" class="waves-effect waves-light btn">Détail</a>
+                    </td>
+                </tr>
+                <?php
+            }
+            ?>
+        </tbody>
+    </table>   
             '); ?>
                 </code>
                 </pre>
                 <p>
-                    Vous trouverez le visuel du résultat <a class="uk-link-muted" href="allProduct.php" target="_blank">ici</a>
+                    Vous trouverez le visuel du résultat <a href="allProduct.php" target="_blank">ici</a>
+                </p>
+                <p>
+                    ATTENTION : nous affichons notre liste de produit sous forme de tableau, ce qui conviendra pour une interface administrateur. Pour une interface client (où l'utilisateur ne doit pas forcément tout voir) il sera préférable d'opter pour une présentation plus user-friendly.
                 </p>
             </div>
         </li>
@@ -272,23 +277,21 @@ $result->closeCursor();
                 <pre>
                     <code>
                         <?= htmlspecialchars('
-<a href="produit.php?id=<?= $element->pro_id ?>" title="Lien vers la fiche produit" class="uk-button uk-button-secondary uk-button-small">
-    Fiche Produit
-</a>
+<a href="produit.php?id=<?= $element->pro_id ?>" title="Lien vers la fiche produit" class="waves-effect waves-light btn">Détail</a>
 '); ?>
                     </code>
                 </pre>
                 <p>
-                    Ils nous a suffit de renseigner le chemin de la page, d'y ajouter "?id=" et l'objet "$element->pro_id".
+                    Ils nous a suffit de renseigner le chemin de la page, d'y ajouter <code>?id=</code> et l'objet <code>$element->pro_id</code>.
                 </p>
                 <p>
                     Au click sur le bouton, l'id du produit sélectionné sera envoyé dans l'url, et la page vers laquelle nous serons redirigé aura une url du type "https://produit.php?id=15".
                 </p>
                 <p>
-                    En ce qui concerne la construction de la requête, nous devrons donc faire avec une inconnuer, le controlleur ne sera pas en mesure de savoir par avance sur quel bouton nous allons cliquer, et il serait trop laborieux et peu productif de faire une requête ppour chaque produit.
+                    En ce qui concerne la construction de la requête, nous devrons donc faire avec une inconnue, le contrôleur ne sera pas en mesure de savoir par avance sur quel bouton nous allons cliquer, et il serait trop laborieux et peu productif de faire une requête ppour chaque produit.
                 </p>
                 <p>
-                    Dans notre controlleur, nous allons commencer par récupérer l'id du produit que nous avons préalablement passé en url à l'aide la méthode $_GET, permettant de récupérer des informations passées dans l'url :
+                    Dans notre contrôleur, nous allons commencer par récupérer l'id du produit que nous avons préalablement passé en url à l'aide la méthode $_GET, permettant de récupérer des informations passées dans l'url :
                 </p>
                 <pre>
                     <code>
@@ -312,10 +315,10 @@ $query = \' SELECT * FROM `produits` WHERE `pro_id` = :id\';
                     </code>
                 </pre>
                 <p>
-                    ":id" est notre marqueur nominatif, sa syntaxe sera toujours la même (:nom_marqueur).
+                    <code>:id</code> est notre marqueur nominatif, sa syntaxe sera toujours la même (<code>:nom_marqueur</code>).
                 </p>
                 <p>
-                    Une fois notre requête SQL établie, nous allons utiliser la méthode <a href="http://php.net/manual/fr/pdo.prepare.php" title="Liens vers documentation php.net" class="uk-link-muted" target="_blank">"prepare()"</a> plutôt que "query()". On va dire que l'on fait une <a href="http://php.net/manual/fr/pdo.prepared-statements.php" title="Liens vers documentation php.net" class="uk-link-muted" target="_blank">requête préparée</a>
+                    Une fois notre requête SQL établie, nous allons utiliser la méthode <code><a href="http://php.net/manual/fr/pdo.prepare.php" title="Liens vers documentation php.net" target="_blank">"prepare()"</a></code> plutôt que <code>query()</code>. On va dire que l'on fait une <a href="http://php.net/manual/fr/pdo.prepared-statements.php" title="Liens vers documentation php.net" target="_blank">requête préparée</a>
                 </p>
                 <pre>
                     <code>
@@ -327,7 +330,7 @@ $result = $db->prepare($query);
                     </code>
                 </pre>
                 <p>
-                    on va ensuite lier une valeur à notre marqueur nominatif, en faisant un bindValue (to bind = lier). Dans ce bindValue nous retrouverons notre marqueur nominatif, la valeur que l'on va lui attribuer, ainsi que le type de donnée (INT, STR...) :
+                    on va ensuite lier une valeur à notre marqueur nominatif, en faisant un <code>bindValue</code> (to bind = lier). Dans ce <code>bindValue</code> nous retrouverons notre marqueur nominatif, la valeur que l'on va lui attribuer, ainsi que le type de donnée (INT, STR...) :
                 </p>
                 <pre>
                     <code>
@@ -339,7 +342,7 @@ $result->bindValue(\':id\', $id, PDO::PARAM_INT);
                     </code>
                 </pre>
                 <p>
-                    Enusuite on exécute la requête à l'aide de la méthode <a href="http://php.net/manual/fr/pdostatement.execute.php" title="Liens vers documentation php.net" class="uk-link-muted" target="_blank">"execute()" :</a>
+                    Enusuite on exécute la requête à l'aide de la méthode <code><a href="http://php.net/manual/fr/pdostatement.execute.php" title="Liens vers documentation php.net" target="_blank">execute()</a></code> :
                 </p>
                 <pre>
                     <code>
@@ -351,7 +354,7 @@ $result->execute();
                     </code>
                 </pre>
                 <p>
-                    Et enfin nous faisons notre "fetch()" et notre "closeCursor" comme une requête classique :
+                    Et enfin nous faisons notre <code>fetch()</code> et notre <code>closeCursor</code> comme une requête classique :
                 </p>
                 <pre>
                     <code>
@@ -389,7 +392,10 @@ $result->closeCursor();
                     </code>
                 </pre>
                 <p>
-                    Pour voir le résultat en action <a class="uk-link-muted" href="allProduct.php" target="_blank">cliquez ici</a> puis cliquez sur un des boutons "fiche produit"
+                    Pour voir le résultat en action <a href="allProduct.php" title="Lien vers la démo" target="_blank">cliquez ici</a> puis cliquez sur un des boutons "détail"
+                </p>
+                <p>
+                    De même que l'affichage de la liste des produits, il convient d'utiliser une façon adéquat pour afficher le détail d'un produit pour une interface client.
                 </p>
             </div>
         </li>
