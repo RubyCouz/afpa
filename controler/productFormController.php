@@ -1,12 +1,19 @@
 <?php
 
 try {
-    $db = new PDO('mysql:host=localhost;charset=utf8;dbname=cedric', 'cedric', 'couz02072014');
+    $db = new PDO('mysql:host=localhost;charset=utf8;dbname=jarditou', 'root', '');
 } catch (Exception $e) {
     echo 'erreur : ' . $e->getMessage() . '<br>';
     echo 'N° : ' . $e->getCode();
     die('fin du script');
 }
+//try {
+//    $db = new PDO('mysql:host=localhost;charset=utf8;dbname=cedric', 'cedric', 'couz02072014');
+//} catch (Exception $e) {
+//    echo 'erreur : ' . $e->getMessage() . '<br>';
+//    echo 'N° : ' . $e->getCode();
+//    die('fin du script');
+//}
 
 /**
  * Ajout d'un produit dans la bdd
@@ -16,7 +23,7 @@ $formError = array();
 // déclaration des regexs
 $refPattern = '/^[a-zA-Z\_\-\d]+$/';
 $textPattern = '/^[a-zA-Z\-\,\. \déèàçùëüïôäâêûîô#&]+$/';
-$pricePattern = '/^[\d]+[.]{1}[\d]{2,}+$/';
+$pricePattern = '/^[\d]*[.]?[\d]{1,2}+$/';
 $numPattern = '/^[\d]+$/';
 $radioPattern = '/^[1-2]{1}$/';
 $colorPattern = '/^[a-zA-Zéèëê]+$/';
@@ -171,11 +178,11 @@ if (isset($_POST['submit']))
             // récupération de l'extension du fichier et stockage dans une variable
             $pro_photo = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
         }
-        else
-        {
-            // cas où il n'y a pas de fichier d'uploader, dans le cas d'un ajoût de produit
-            $formError['file'] = 'Vous devez joindre une photo valide au produit !';
-        }
+    }
+    else
+    {
+        // cas où il n'y a pas de fichier d'uploader, dans le cas d'un ajoût de produit
+        $formError['file'] = 'Vous devez joindre une photo valide au produit !';
     }
     if (count($formError) == 0)
     {
@@ -193,7 +200,7 @@ if (isset($_POST['submit']))
         $addProduct->bindValue(':pro_bloque', $pro_bloque, PDO::PARAM_INT);
         if ($addProduct->execute())
         {
-            ;
+
 
             // stockage du chemein de destintaion dans une variable
             $upload_dir = '../../assets/img/';
@@ -206,13 +213,20 @@ if (isset($_POST['submit']))
             //déplacement du fichier
             move_uploaded_file($_FILES['file']['tmp_name'], $upload_file);
             // message de confirmation
-           
         }
-         return $addProduct->execute();
+        return $addProduct->execute();
     }
     else
     {
         $formError['error'] = 'Une erreur est survenue lors de l\'insertion du produit dans la base de données.';
+        // affichage des catégories dans la liste déroulante
+        $query = 'SELECT * FROM `categories`';
+        $result = $db->query($query);
+        if (is_object($result))
+        {
+            $isObjectResult = $result->fetchAll(PDO::FETCH_OBJ);
+        }
+        return $isObjectResult;
     }
 }
 else

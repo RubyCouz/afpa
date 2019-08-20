@@ -35,7 +35,7 @@ if (isset($_POST['delete']))
 $formError = array();
 // déclaration des regexs
 $textPattern = '/^[a-zA-Z\-\,\. \déèàçùëüïôäâêûîô#&]+$/';
-$pricePattern = '/^[\d]+[.]{1}[\d]{2,}+$/';
+$pricePattern = '/^[\d]*[.]?[\d]{1,2}+$/';
 $numPattern = '/^[0-9]+$/';
 $radioPattern = '/^[1-2]{1}$/';
 $extension = '';

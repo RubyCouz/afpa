@@ -675,6 +675,7 @@ $(document).ready(function () {
      */
     var textValid = /^[a-zA-Z\-\déèàçùëüïô äâêûîô#&]+$/;
     var numberValid = /^[\d]*[.]?[\d]{1,2}$/;
+    var picValid = /^[a-z0-9\_\-]*[.]((jpeg)|(png)|(jpg)|(gif)|)$/;
     $('#ref').blur(function () {
         if ($('#ref').val() == '') {
             $('#ref').removeClass('invalid');
@@ -770,5 +771,27 @@ $(document).ready(function () {
             $('#description').addClass('valid');
             $('#errorDesc').html('');
         }
+    });
+    if ($('#file').val() == '') {
+        $('#file').removeClass('invalid');
+        $('#descrifileption').addClass('valid');
+        $('#errorDesc').html('');
+    }
+    $('#file').change(function () { 
+        if ($('#file').val() == '') {
+            $('#file').removeClass('invalid');
+            $('#file').addClass('invalid');
+            $('#errorFile').html('Fichier  manquant');
+
+        } else if (picValid.test($('#file').val()) == false) {
+            $('#file').removeClass('valid');
+            $('#file').addClass('invalid');
+            $('#errorFile').html('Mauvais format de fichier');
+        } else {
+            $('#file').removeClass('invalid');
+            $('#file').addClass('valid');
+            $('#errorFile').html('');
+        }
+        console.log($('#file').val());
     });
 });

@@ -24,7 +24,7 @@ include '../header.php';
         <?php include 'delProduct.php' ?>
     </div>
     <div id="add" class="col s12">
-        <?php include 'addproduct.php' ?>
+        <?php include 'addProduct.php' ?>
     </div>
 </div>
 <?php

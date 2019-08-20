@@ -1,6 +1,6 @@
 
 <div class="container">
-    <h1>Modification d\'un produit</h1>
+    <h1>Modification d'un produit</h1>
     <ul class="collapsible popout">
         <li class="active">
             <div class="collapsible-header">Mis en place de l'upload de fichier</div>
@@ -144,18 +144,19 @@ include \'../../controler/productControler.php\';
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <select>
-                                                <option value="" disabled selected>Choose your option</option>
+                                            <select name="categories" id="categories">
+                                                <option value="" disabled selected>Choisissez une catégorie</option>
                                                 <?php
                                                 foreach ($isObjectResult as $cat)
                                                 {
                                                     ?>
-                                                    <option value="<?= $cat->cat_id ?>" <?= $cat->cat_id == $product->pro_cat_id ? \'selected\' : \'\' ?>><?= $cat->cat_nom ?></option>
+                                                <option value="<?= $cat->cat_id ?>"<?= isset($_POST[\'categories\']) && $_POST[\'categories\'] == $cat->cat_id ? \'selected\' : \'\' ?>><?= $cat->cat_nom ?></option>
                                                     <?php
                                                 }
                                                 ?>
                                             </select>
-                                            <label>Catégorie</label>
+                                            <label for="categories">Catégorie</label>
+                                             <span class="error" id="errorCAt"><?= isset($formError[\'categories\']) ? $formError[\'categories\'] : \'\' ?></span>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -169,7 +170,7 @@ include \'../../controler/productControler.php\';
                                         <div class="input-field col s12">
                                             <input id="label" type="text" name="label" class="" value="<?= isset($_POST[\'label\']) ? $_POST[\'label\'] : $product->pro_libelle ?>">
                                             <label for="label">Libellé</label>
-                                            <span class="error" id="errorLabel"></span>
+                                            <span class="error" id="errorLabel"><?= isset($formError[\'label\']) ? $formError[\'label\'] : \'\' ?></span>
                                         </div>
                                     </div>                                                    
                                 </div>
@@ -178,13 +179,13 @@ include \'../../controler/productControler.php\';
                                 <div class="input-field col s6">
                                     <input id="color" type="text" name="color" class="" value="<?= isset($_POST[\'color\']) ? $_POST[\'color\'] : $product->pro_couleur ?>">
                                     <label for="color">Couleur</label>
-                                    <span class="error" id="errorColor"></span>
+                                    <span class="error" id="errorColor"><?= isset($formError[\'color\']) ? $formError[\'color\'] : \'\' ?></span>
                                 </div>
                                 <div class="col s6">
                                     <div class="input-field">
                                         <input id="stock" type="text" name="stock" class="" value="<?= isset($_POST[\'stock\']) ? $_POST[\'stock\'] : $product->pro_stock ?>">
                                         <label for="stock">Stock</label>
-                                        <span class="error" id="errorStock"></span>
+                                        <span class="error" id="errorStock"><?= isset($formError[\'stock\']) ? $formError[\'stock\'] : \'\' ?></span>
                                     </div>
                                 </div>
                             </div>    
@@ -193,7 +194,7 @@ include \'../../controler/productControler.php\';
                                     <div class="input-field">
                                         <input id="price" type="text" name="price" class="" value="<?= isset($_POST[\'price\']) ? $_POST[\'price\'] : $product->pro_prix ?>">
                                         <label for="price">Prix</label>
-                                        <span class="error" id="errorPrice"></span>
+                                        <span class="error" id="errorPrice"><?= isset($formError[\'price\']) ? $formError[\'price\'] : \'\' ?></span>
                                     </div>
                                 </div>
                                 <div class="col s6">
@@ -214,7 +215,7 @@ include \'../../controler/productControler.php\';
                                     <div class="input-field">
                                         <textarea id="description" class="materialize-textarea" name="description"><?= isset($_POST[\'decription\']) ? $_POST[\'description\'] : $product->pro_description ?></textarea>
                                         <label for="description">Description</label>
-                                        <span class="error" id="errorDesc"></span>
+                                        <span class="error" id="errorDesc"><?= isset($formError[\'description\']) ? $formError[\'description\'] : \'\' ?></span>
                                     </div>
                                 </div>
                             </div>
@@ -583,18 +584,19 @@ include \'../../controler/productControler.php\';
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <select>
-                                                <option value="" disabled selected>Choose your option</option>
+                                         <select name="categories" id="categories">
+                                                <option value="" disabled selected>Choisissez une catégorie</option>
                                                 <?php
                                                 foreach ($isObjectResult as $cat)
                                                 {
                                                     ?>
-                                                    <option value="<?= $cat->cat_id ?>" <?= $cat->cat_id == $product->pro_cat_id ? \'selected\' : \'\' ?>><?= $cat->cat_nom ?></option>
+                                                <option value="<?= $cat->cat_id ?>"<?= isset($_POST[\'categories\']) && $_POST[\'categories\'] == $cat->cat_id ? \'selected\' : \'\' ?>><?= $cat->cat_nom ?></option>
                                                     <?php
                                                 }
                                                 ?>
                                             </select>
-                                            <label>Catégorie</label>
+                                            <label for="categories">Catégorie</label>
+                                             <span class="error" id="errorCAt"><?= isset($formError[\'categories\']) ? $formError[\'categories\'] : \'\' ?></span>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -608,7 +610,7 @@ include \'../../controler/productControler.php\';
                                         <div class="input-field col s12">
                                             <input id="label" type="text" name="label" class="" value="<?= isset($_POST[\'label\']) ? $_POST[\'label\'] : $product->pro_libelle ?>">
                                             <label for="label">Libellé</label>
-                                            <span class="error" id="errorLabel"></span>
+                                            <span class="error" id="errorLabel"><?= isset($formError[\'label\']) ? $formError[\'label\'] : \'\' ?></span>
                                         </div>
                                     </div>                                                    
                                 </div>
@@ -617,13 +619,13 @@ include \'../../controler/productControler.php\';
                                 <div class="input-field col s6">
                                     <input id="color" type="text" name="color" class="" value="<?= isset($_POST[\'color\']) ? $_POST[\'color\'] : $product->pro_couleur ?>">
                                     <label for="color">Couleur</label>
-                                    <span class="error" id="errorColor"></span>
+                                    <span class="error" id="errorColor"><?= isset($formError[\'color\']) ? $formError[\'color\'] : \'\' ?></span>
                                 </div>
                                 <div class="col s6">
                                     <div class="input-field">
                                         <input id="stock" type="text" name="stock" class="" value="<?= isset($_POST[\'stock\']) ? $_POST[\'stock\'] : $product->pro_stock ?>">
                                         <label for="stock">Stock</label>
-                                        <span class="error" id="errorStock"></span>
+                                        <span class="error" id="errorStock"><?= isset($formError[\'stock\']) ? $formError[\'stock\'] : \'\' ?></span>
                                     </div>
                                 </div>
                             </div>    
@@ -632,7 +634,7 @@ include \'../../controler/productControler.php\';
                                     <div class="input-field">
                                         <input id="price" type="text" name="price" class="" value="<?= isset($_POST[\'price\']) ? $_POST[\'price\'] : $product->pro_prix ?>">
                                         <label for="price">Prix</label>
-                                        <span class="error" id="errorPrice"></span>
+                                        <span class="error" id="errorPrice"><?= isset($formError[\'price\']) ? $formError[\'price\'] : \'\' ?></span>
                                     </div>
                                 </div>
                                 <div class="col s6">
@@ -653,7 +655,7 @@ include \'../../controler/productControler.php\';
                                     <div class="input-field">
                                         <textarea id="description" class="materialize-textarea" name="description"><?= isset($_POST[\'decription\']) ? $_POST[\'description\'] : $product->pro_description ?></textarea>
                                         <label for="description">Description</label>
-                                        <span class="error" id="errorDesc"></span>
+                                        <span class="error" id="errorDesc"><?= isset($formError[\'description\']) ? $formError[\'description\'] : \'\' ?></span>
                                     </div>
                                 </div>
                             </div>
