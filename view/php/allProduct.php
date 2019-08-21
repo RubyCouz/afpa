@@ -6,7 +6,7 @@ include '../../controler/allProductControler.php';
     <h1>Vue Admin</h1>
     <div class="row">
         <div class="col s4">
-            <a href="productForm.php" class="waves-effect waves-light btn" title="Lien vers ajout d'un produit" target="_blank"><i class="material-icons right">add</i>Ajouter un produit</a>
+            <a href="productForm.php" class="waves-effect waves-light btn" title="Lien vers ajout d'un produit"><i class="material-icons right">add</i>Ajouter un produit</a>
         </div>
         <div class="col s4 offset-s4 right-align">
             <a href="allProductClient.php" class="waves-effect waves-light btn" title="Lien vers l'affichage des produits sur une vue client">Voir la vue client</a>

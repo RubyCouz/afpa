@@ -17,10 +17,12 @@ include '../../controler/productFormController.php';
                 <div class="card light-green lighten-5">
                     <div class="card-content">
                         <span class="card-title">Insertion d'un produit :</span>
-                        <form method="POST" action="#" enctype="multipart/form-data">   
+                        <form method="POST" action="#" enctype="multipart/form-data" id="form">   
                             <div class="row">
-                                <div class="col s6">
-                                    <img src="../../assets/img/" alt="" class="materialboxed pic2">
+                                <div class="col s6" id="prev">
+                                    
+                                    <img src="" alt="" id="picture" class="materialboxed pic2">
+                                    
                                 </div>
                                 <div class="col s6">
 
@@ -83,10 +85,10 @@ include '../../controler/productFormController.php';
                                     <div class="file-field input-field">
                                         <div class="btn">
                                             <span>Insérer une photo</span>
-                                            <input type="file" name="file">
+                                            <input type="file" name="file" id="upload">
                                         </div>
                                         <div class="file-path-wrapper">
-                                            <input class="file-path validate" type="text" id="file">
+                                            <input class="file-path validate" type="text" id="file>
                                         </div>
                                         <span class="info">Au format .gif, .jpg, .jpeg ou .png</span>
                                         <span class="error" id="errorFile"><?= isset($formError['file']) ? $formError['file'] : '' ?></span>

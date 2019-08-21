@@ -675,7 +675,7 @@ $(document).ready(function () {
      */
     var textValid = /^[a-zA-Z\-\déèàçùëüïô äâêûîô#&]+$/;
     var numberValid = /^[\d]*[.]?[\d]{1,2}$/;
-    var picValid = /^[a-z0-9\_\-]*[.]((jpeg)|(png)|(jpg)|(gif)|)$/;
+    var picValid = /^[a-z0-9\_\-]*[.]((jpeg)|(png)|(jpg)|(gif))$/;
     $('#ref').blur(function () {
         if ($('#ref').val() == '') {
             $('#ref').removeClass('invalid');
@@ -777,7 +777,9 @@ $(document).ready(function () {
         $('#descrifileption').addClass('valid');
         $('#errorDesc').html('');
     }
-    $('#file').change(function () { 
+
+
+    $('#file').change(function () {
         if ($('#file').val() == '') {
             $('#file').removeClass('invalid');
             $('#file').addClass('invalid');
@@ -792,6 +794,6 @@ $(document).ready(function () {
             $('#file').addClass('valid');
             $('#errorFile').html('');
         }
-        console.log($('#file').val());
     });
+
 });

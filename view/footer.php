@@ -5,6 +5,7 @@
 <script>
     hljs.initHighlightingOnLoad();
 </script>
+<script src="../../assets/js/upload.js"></script>
 <script src="../../assets/js/script.js"></script>
 </body>
 </html>
