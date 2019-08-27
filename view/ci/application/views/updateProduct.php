@@ -1,187 +1,204 @@
-<div class="uk-container">
+<div class="container">
+    <?php
+    if (isset($_POST['delete']))
+    {
+        ?>
+        <p class="white-text">
+            Produit supprimé !!
+        </p>
+        <a href="<?= site_url('Produits/liste') ?>" title="Retour à la liste de produit" class="waves-effect waves-light btn">Retour à la liste de produit</a>
+        <?php
+    }
+    else
+    {
+        ?>
+        <div class="row">
+            <div class="col s12">
+                <div class="card light-green lighten-5">
+                    <div class="card-content">
+                        <span class="card-title">Détail du produit <?= $produits->pro_libelle ?> :</span>
+                        <form method="POST" action="#" enctype="multipart/form-data">   
+                            <div class="row">
+                                <div class="col s6" id="prev">
+                                    <img src="<?= base_url('assets/img/' . $produits->pro_id . '.' . $produits->pro_photo) ?>" alt="image de <?= $produits->pro_libelle ?>" class="pic2">
+                                </div>
+                                <div class="col s6">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="id" type="text" name="id" class="" disabled value="<?= $produits->pro_id ?>">
+                                            <label for="id">ID</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <select name="pro_cat_id" id="categories">
+                                                <option value="" disabled selected>Choisissez une catégorie</option>
+                                                <?php
+                                                foreach ($categoriesList as $cat)
+                                                {
+                                                    ?>
+                                                    <option value="<?= $cat->cat_id ?>"<?= isset($_POST['pro_cat_id']) && $_POST['pro_cat_id'] == $cat->cat_id || ($cat->cat_id == $produits->pro_cat_id) ? 'selected' : '' ?>><?= $cat->cat_nom ?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
+                                            <label for="categories">Catégorie</label>
+                                            <?php
+                                            if (form_error('pro_cat_id') != NULL)
+                                            {
+                                                ?>
+                                                <span class="new badge"><?= form_error('pro_cat_id') ?></span>
+                                                <?php
+                                            }
+                                            ?>
 
-    <?php //echo validation_errors(); ?>
-    <form action="" method="POST" enctype="multipart/form-data">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="ref" type="text" name="pro_ref" class="" value="<?= set_value('pro_ref') != NULL ? set_value('pro_ref') : $produits->pro_ref ?>">
+                                            <label for="ref">Référence</label>
+                                            <?php
+                                            if (form_error('pro_ref') != NULL)
+                                            {
+                                                ?>
+                                                <span class="new badge"><?= form_error('pro_ref') ?></span>
+                                                <?php
+                                            }
+                                            ?>
 
-        <div class="uk-alert-danger">
-            <!-- <?= $error ?> -->
-        </div>
-        <fieldset class="uk-fieldset">
-            <legend class="uk-legend">Modifier un produit</legend>
-
-            <div class="uk-child-width-1-2 uk-text-center" uk-grid>
-                <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <img src="<?= base_url('assets/img/' . $produits->pro_id . '.' . $produits->pro_photo) ?>" alt="Photo d'illustration" title="Photo de <?= $produits->pro_libelle ?>" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="label" type="text" name="pro_libelle" class="" value="<?= set_value('pro_libelle') != NULL ? set_value('pro_libelle') : $produits->pro_libelle ?>">
+                                            <label for="label">Libellé</label>
+                                            <?php
+                                            if (form_error('pro_libelle') != NULL)
+                                            {
+                                                ?>
+                                                <span class="new badge"><?= form_error('pro_libelle') ?></span>
+                                                <?php
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>                                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="color" type="text" name="pro_couleur" class="" value="<?= set_value('pro_couleur') != NULL ? set_value('pro_couleur') : $produits->pro_couleur ?>">
+                                    <label for="color">Couleur</label>
+                                    <?php
+                                    if (form_error('pro_couleur') != NULL)
+                                    {
+                                        ?>
+                                        <span class="new badge"><?= form_error('pro_couleur') ?></span>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                                <div class="col s6">
+                                    <div class="input-field">
+                                        <input id="stock" type="text" name="pro_stock" class="" value="<?= set_value('pro_stock') != NULL ? set_value('pro_stock') : $produits->pro_stock ?>">
+                                        <label for="stock">Stock</label>
+                                        <?php
+                                        if (form_error('pro_stock') != NULL)
+                                        {
+                                            ?>
+                                            <span class="new badge"><?= form_error('pro_stock') ?></span>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>    
+                            <div class="row">
+                                <div class="col s6">
+                                    <div class="input-field">
+                                        <input id="price" type="text" name="pro_prix" class="" value="<?= set_value('pro_prix') != NULL ? set_value('pro_prix') : $produits->pro_prix ?>">
+                                        <label for="price">Prix</label>
+                                        <?php
+                                        if (form_error('pro_prix') != NULL)
+                                        {
+                                            ?>
+                                            <span class="new badge"><?= form_error('pro_prix') ?></span>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                                <div class="col s6">
+                                    <div class="file-field input-field">
+                                        <div class="btn">
+                                            <span>Insérer une photo</span>
+                                            <input type="file" name="pro_photo" id="upload">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text" id="file">
+                                        </div>
+                                        <span class="info">Au format .gif, .jpg, .jpeg, .pjpeg ou .png</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                    <div class="input-field">
+                                        <textarea id="description" class="materialize-textarea" name="pro_description"><?= set_value('pro_description') != NULL ? set_value('pro_description') : $produits->pro_description ?></textarea>
+                                        <label for="description">Description</label>
+                                        <?php
+                                        if (form_error('pro_description') != NULL)
+                                        {
+                                            ?>
+                                            <span class="new badge"><?= form_error('pro_description') ?></span>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row valign-wrapper left-align">
+                                <div class="col s2 radio">
+                                    <p>Produit bloqué :</p>
+                                </div>
+                                <div class="col s1 radio">
+                                    <label>
+                                        <input name="pro_bloque" type="radio" value="1" <?= $produits->pro_bloque == 1 ? 'checked' : '' ?>>
+                                        <span>Oui</span>
+                                    </label>
+                                </div>
+                                <div class="col s1 radio">
+                                    <label>
+                                        <input name="pro_bloque" type="radio" value="2" <?= ($produits->pro_bloque == NULL) || ($produits->pro_bloque == 2) ? 'checked' : '' ?>>
+                                        <span>Non</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s6">
+                                    <p>Date d'ajout : <?= $produits->pro_d_ajout ?></p>
+                                </div>
+                                <div class="col s6">
+                                    <p>Date de modification : <?= $produits->pro_d_modif == NULL ? 'Pas de modification enregistrée' : $produits->pro_d_modif ?></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s4 center-align">
+                                    <input type="submit" value="Modifier le produit" class="waves-effect waves-light btn">
+                                </div>
+                                <div class="col s4 center-align">
+                                    <a type="submit" name="delete" id="delete" href="#modal<?= $produits->pro_id ?>" class="waves-effect waves-light btn modal-trigger red accent-4">Effacer le produit</a>
+                                </div>
+                                <div class="col s4 center-align">
+                                    <a href="<?= site_url('Produits/liste') ?>" title="Lien vers le catalogue" class="waves-effect waves-light btn cyan accent-4">Retour au catalogue</a>
+                                </div>
+                            </div>
+                        </form>  
                     </div>
                 </div>
-
-                <div>
-                    <div class="uk-margin">
-                        <div class="uk-form-controls">
-                            <input class="uk-input" id="id" type="hidden" name="pro_id" value="<?= $produits->pro_id ?>" />
-                        </div>
-                    </div>
-                    <div class="uk-margin">
-                        <label for="categories"></label>
-                        <select class="uk-select" id="categories" name="pro_cat_id">
-                            <option disabled selected>Choisissez une catégorie</option>
-                            <?php
-                            foreach ($categoriesList as $row)
-                            {
-                                ?>
-                                <option value="<?= $row->cat_id ?>" <?= $row->cat_id == $produits->pro_cat_id ? 'selected' : '' ?>><?= $row->cat_nom ?></option>
-                                <?php
-                            }
-                            ?>
-                        </select>   
-                        <?php
-                        if (form_error('pro_cat_id') != NULL)
-                        {
-                            ?>
-                            <div class="uk-alert-danger" uk-alert>
-                                <a class="uk-alert-close" uk-close></a>
-                                <p><?= form_error('pro_cat_id') ?></p>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                    </div>
-                    <div class="uk-margin">
-                        <label class="uk-form-label" for="ref">Référence</label>
-                        <div class="uk-form-controls">
-                            <input class="uk-input" id="ref" type="text" name="pro_ref" placeholder="Indiquez une référence" value="<?= set_value('pro_ref') != NULL ? set_value('pro_ref') : $produits->pro_ref ?>" />
-                        </div>
-                        <?php
-                        if (form_error('pro_ref') != NULL)
-                        {
-                            ?>
-                            <div class="uk-alert-danger" uk-alert>
-                                <a class="uk-alert-close" uk-close></a>
-                                <p><?= form_error('pro_ref') ?></p>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                    </div>
-                    <div class="uk-margin">
-                        <label class="uk-form-label" for="color">Couleur</label>
-                        <div class="uk-form-controls">
-                            <input class="uk-input" id="color" type="text" name="pro_couleur" placeholder="Indiquez une couleur"  value="<?= set_value('pro_couleur') != NULL ? set_value('pro_couleur') : $produits->pro_couleur ?>" />
-                        </div>
-                        <?php
-                        if (form_error('pro_couleur') != NULL)
-                        {
-                            ?>
-                            <div class="uk-alert-danger" uk-alert>
-                                <a class="uk-alert-close" uk-close></a>
-                                <p><?= form_error('pro_couleur') ?></p>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                    </div>
-                    <div class="uk-margin">
-                        <label class="uk-form-label" for="label">Libellé</label> /
-                        <div class="uk-form-controls">
-                            <input class="uk-input" id="label" type="text" name="pro_libelle" placeholder="Libellé" value="<?= set_value('pro_libelle') != NULL ? set_value('pro_libelle') : $produits->pro_libelle ?>" />
-                        </div>
-                        <?php
-                        if (form_error('pro_libelle') != NULL)
-                        {
-                            ?>
-                            <div class="uk-alert-danger" uk-alert>
-                                <a class="uk-alert-close" uk-close></a>
-                                <p><?= form_error('pro_libelle') ?></p>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                    </div>
-                    <div class="uk-margin">
-                        <label class="uk-form-label" for="price">Prix</label>
-                        <div class="uk-form-controls">
-                            <input class="uk-input" id="price" type="text" name="pro_prix" placeholder="Prix"  value="<?= set_value('pro_prix') != NULL ? set_value('pro_prix') : $produits->pro_prix ?>" />
-                        </div>
-                        <?php
-                        if (form_error('pro_prix') != NULL)
-                        {
-                            ?>
-                            <div class="uk-alert-danger" uk-alert>
-                                <a class="uk-alert-close" uk-close></a>
-                                <p><?= form_error('pro_prix') ?></p>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                    </div>
-                    <div class="uk-margin">
-                        <label class="uk-form-label" for="stock">Stock</label>
-                        <div class="uk-form-controls">
-                            <input class="uk-input" id="stock" type="text" name="pro_stock" placeholder="Quantité en stock"  value="<?= set_value('pro_stock') != NULL ? set_value('pro_stock') : $produits->pro_stock ?>" />
-                        </div>
-                        <?php
-                        if (form_error('pro_stock') != NULL)
-                        {
-                            ?>
-                            <div class="uk-alert-danger" uk-alert>
-                                <a class="uk-alert-close" uk-close></a>
-                                <p><?= form_error('pro_stock') ?></p>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                    </div>
-                    <div class="uk-margin">
-                        <div uk-form-custom="target: true">
-                            <input type="file" name="pro_photo" >
-                            <input class="uk-input uk-form-width-medium" type="text" placeholder="Insérez une image" disabled>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uk-margin">
-                <label class="uk-form-label" for="description">Description</label>
-                <textarea class="uk-textarea" rows="5" id="description" placeholder="Description" name="pro_description" ><?= set_value('pro_description') != NULL ? set_value('pro_description') : $produits->pro_description ?></textarea>
-                <?php
-                if (form_error('pro_description') != NULL)
-                {
-                    ?>
-                    <div class="uk-alert-danger" uk-alert>
-                        <a class="uk-alert-close" uk-close></a>
-                        <p><?= form_error('pro_description') ?></p>
-                    </div>
-                    <?php
-                }
-                ?>
-            </div>
-            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                <label>Produit bloqué :</label>
-                <label><input class="uk-radio" type="radio" name="pro_bloque" value="1" <?= $produits->pro_bloque == 1 ? 'checked' : '' ?>> Oui</label>
-                <label><input class="uk-radio" type="radio" name="pro_bloque" value="2" <?= $produits->pro_bloque == 1 ? '' : 'checked' ?>> Non</label>
-            </div>
-        </fieldset>
-        <input type="submit" value="Modifier le produit" class="uk-button uk-button-secondary" />
-        <button class="uk-button uk-button-danger" type="button" uk-toggle="target: #modal-example">Supprimer le produit</button>
-    </form>
-
-    <!-- This is the modal -->
-    <div id="modal-example" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body">
-            <h2 class="uk-modal-title">ATTENTION :</h2>
-            <p>Voulez-vous vraiment supprimer ce produit?</p>
-            <p>Cette suppression sera irreversible.</p>
-            <div class="uk-text-right">
-                <form action="<?= site_url('Produits/delete') ?>" method="POST">
-                    <input type="hidden" name="pro_id" id="pro_id" value="<?= $produits->pro_id ?>" />
-                    <input type="submit" name="delete" id="delete" class="uk-button uk-button-danger" value="Oui" />
-                    <button class="uk-button uk-button-default uk-modal-close" type="button">Non</button>
-                </form>
             </div>
         </div>
-    </div>
-
-
-    <hr class="uk-divider-icon" />
-</div> 
+        <?php
+    }
+    ?>
+</div>

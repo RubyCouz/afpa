@@ -1,5 +1,5 @@
 
-<div class="uk-container">
+<div class="container">
 
     <?php echo validation_errors(); ?>
 

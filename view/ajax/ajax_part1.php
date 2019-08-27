@@ -118,9 +118,9 @@ include '../header.php';
                                 <?= htmlspecialchars('<?php
 include \'../../controler/allProductControler.php\';
 ?>
-<div class="uk-container">
-    <a href="productForm.php" class="waves-effect waves-light btn" title="Lien vers ajout d\'un produit" target="_blank">Ajouter un produit</a>
-    <table class="uk-table uk-table-striped">
+<div class="container">
+    <a href="productForm.php" title="Lien vers ajout d\'un produit" target="_blank">Ajouter un produit</a>
+    <table>
         <thead>
         <th>Photo</th>
         <th>Id</th>
@@ -155,7 +155,7 @@ include \'../../controler/allProductControler.php\';
                     <td><?= $element->pro_d_ajout ?></td>
                     <td><?= $element->pro_d_modif ?></td>
                     <td><?= $element->pro_bloque == 1 ? \'Oui\' : \'Non\' ?></td>
-                    <td><a href="produit.php?id=<?= $element->pro_id ?>" title="Lien vers la fiche produit" class="waves-effect waves-light btn uk-button-small">Fiche Produit</a>
+                  
                     </td>
                 </tr>
                 <?php
@@ -163,7 +163,7 @@ include \'../../controler/allProductControler.php\';
             ?>
         </tbody>
     </table>    
-    <a href="productForm.php" class="waves-effect waves-light btn" title="Lien vers ajout d\'un produit" target="_blank">Ajouter un produit</a>
+   
 </div> ') ?>
     </code>
                         </pre>
@@ -171,7 +171,8 @@ include \'../../controler/allProductControler.php\';
                     <div id="js" class="col s12">
                         <pre>
     <code class="js">
-                                <?= htmlspecialchars('$(document).ready(function () {
+                                <?= htmlspecialchars('
+    $(document).ready(function () {
     /**
      * Atelier 1
      */
@@ -185,7 +186,7 @@ include \'../../controler/allProductControler.php\';
                         </pre>
                     </div>
                 </div>
-                <a href="ajaxDemo.php" class="waves-effect waves-light btn" title="Lien vers démo ajax" target="_blank">RUN CODE</a>
+                <a href="ajaxDemo.php" class="waves-effect waves-light btn" title="Lien vers démo ajax" target="_blank"><i class="material-icons right">play_arrow</i>RUN CODE</a>
             </div>
         </li>
     </ul>

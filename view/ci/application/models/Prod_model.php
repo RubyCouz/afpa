@@ -1,6 +1,7 @@
 <?php
 
-if (!defined('BASEPATH')) exit('no direct scriptp access allowed');
+if (!defined('BASEPATH'))
+    exit('no direct scriptp access allowed');
 
 /**
  * Description of produitModel
@@ -90,7 +91,6 @@ class Prod_model extends CI_model {
         $this->db->where('pro_id', $id);
         // exécution de la requète
         $this->db->delete('produits');
-        
     }
 
 }

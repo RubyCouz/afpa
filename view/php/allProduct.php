@@ -17,18 +17,20 @@ include '../../controler/allProductControler.php';
 
     <table class="stripped highlight centered responsive-table table">
         <thead>
-        <th>Photo</th>
-        <th>Id</th>
-        <th>Catégorie</th>
-        <th>Référence</th>
-        <th>Libellé</th>
-        <th>Couleur</th>
-        <th>Description</th>
-        <th>Prix</th>
-        <th>Stock</th>
-        <th>Ajout</th>
-        <th>Modif</th>
-        <th>Bloqué</th>
+            <tr>
+                <th>Photo</th>
+                <th>Id</th>
+                <th>Catégorie</th>
+                <th>Référence</th>
+                <th>Libellé</th>
+                <th>Couleur</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Stock</th>
+                <th>Ajout</th>
+                <th>Modif</th>
+                <th>Bloqué</th>
+            </tr>
         </thead>
         <tbody>
             <?php

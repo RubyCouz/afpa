@@ -1,4 +1,4 @@
-<div class="uk-container">
+<div class="container white-text">
     <ul>
         <?php
         foreach($refName as $ref) {

@@ -19,7 +19,7 @@ include '../header.php';
                     </div>                   
                 </div>
                 <p>
-                    <strong>Il est important de ne pas (ou correctement, selon les indications de la <a href="https://codeigniter.com/user_guide/" class="uk-link-muted" title="Lien vers la documentation CodeIgniter" target="_blank">documentation de CodeIgniter</a>) modifier les fichiers déjà présents dans ces dossiers.</strong> Le fonctionnement de CodeIgniter pourrait se retrouver altérer.
+                    <strong>Il est important de ne pas (ou correctement, selon les indications de la <a href="https://codeigniter.com/user_guide/" title="Lien vers la documentation CodeIgniter" target="_blank">documentation de CodeIgniter</a>) modifier les fichiers déjà présents dans ces dossiers.</strong> Le fonctionnement de CodeIgniter pourrait se retrouver altérer.
                 </p>
                 <p>
                     Une fois ces étapes efffectuées, on peut commencer un nouveau projet, en sauvegardant les vues dans le dossier "views", les contrôleurs dans le dossier "controllers" et les modèles dans le dossier "models", tous 3 contenus dans le dossier "application". Le dossier "assets" quant à lui devra se trouver à la même racine que les dossier "application" et "system".
@@ -107,7 +107,7 @@ class ExoController extends CI_Controller {
     </code>
                 </pre>
                 <p>
-                    Pour que les données du contrôleurs passent dans la vue, nous devons passer l'objet <code>$aView</code> en second paramètre de la méthode <a href="https://codeigniter.com/user_guide/general/views.html" class="uk-link-muted" title="Lien vers la documentation CodeIgniter" target="_blank"><code>view()</code></a>.
+                    Pour que les données du contrôleurs passent dans la vue, nous devons passer l'objet <code>$aView</code> en second paramètre de la méthode <a href="https://codeigniter.com/user_guide/general/views.html" title="Lien vers la documentation CodeIgniter" target="_blank"><code>view()</code></a>.
                 </p>
                 <p>
                     Nous pouvons maintenant créer notre vue qui affichera le contenu de notre tableau :
@@ -117,13 +117,13 @@ class ExoController extends CI_Controller {
                         <?= htmlspecialchars('
 <div class="uk-container">
     <p>
-        Hello <?= $prelastname . \' \' . $lastname?>
+        Hello <?= $firstname . \' \' . $lastname?>
     </p>
 </div>') ?>
     </code>
                 </pre>
                 <p>
-                    <code>$prelastname</code> et <code>$lastname</code> font référence aux clés associatives de notre tableau défini dans le contrôleur.
+                    <code>$firstname</code> et <code>$lastname</code> font référence aux clés associatives de notre tableau défini dans le contrôleur.
                 </p>
                 <p>
                     Maintenant pour procéder à notre affichage, nous devons taper dans la barre d'url l'adresse suivante : "localhost/ci/index.php/exoController/firstExo/" (si le dossier de CodeIgniter a été relastnamemé "ci")
@@ -181,7 +181,7 @@ class ExoController extends CI_Controller {
                         </pre>
                     </div>
                 </div>
-                <a href="../ci/index.php/exoController/firstExo" class="waves-effect waves-light btn" title="Lien vers démo" target="_blank">RUN CODE</a>
+                <a href="../ci/index.php/exoController/firstExo" class="waves-effect waves-light btn" title="Lien vers démo" target="_blank"><i class="material-icons right">play_arrow</i>RUN CODE</a>
 
 
             </div>
@@ -233,7 +233,7 @@ public function secondExo() {
 </div>') ?>
     </code>
                 </pre>
-                <a href="../ci/index.php/exoController/secondExo" class="waves-effect waves-light btn" title="Lien vers démo" target="_blank">RUN CODE</a>
+                <a href="../ci/index.php/exoController/secondExo" class="waves-effect waves-light btn" title="Lien vers démo" target="_blank"><i class="material-icons right">play_arrow</i>RUN CODE</a>
             </div>
         </li>
     </ul>

@@ -1,0 +1,127 @@
+body {
+    background: #373d34;
+}
+.collapsible-body {
+    background: #fff
+}
+nav {
+    background: rgba(0,0,0,0.2);
+    transition-property: background;
+    transition-duration: 0.3s;
+}
+.navbar {
+    background-color: #8f1021;
+}
+h1 {
+    color: #fff;
+}
+.error {
+    color: red;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+.tabs {
+    border-radius: 20px 20px 20px;
+    background: #e2e8df
+}
+.summary {
+    position: fixed!important;
+    background-color: rgba(0,0,0,0.2); 
+    margin-left: -11px;
+    border-radius: 20px 20px 20px;
+    transition-property: background;
+    transition-duration: 0.3s;
+    z-index: 1;
+}
+.btn {
+    background-color: #297a20;
+}
+a.btn:hover {
+    background: #64ad5c;
+}
+.dropdown-content li > a {
+    color: #373d34;
+}
+.tabs .tab a {
+    color: #8f1021;
+}
+.tabs .tab a:hover, .tabs .tab a.activ {
+    color: #f2071b;
+}
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+    color: #f2071b; 
+}
+.tabs .tab {
+    text-transform: none;
+}
+
+.tabs .indicator {
+    background-color: #8f1021;
+    height: 3px;
+}
+.summary .tab a {
+    color: #e2e8df; 
+    transition-property: color;
+    transition-duration: 0.3s;
+}
+.summary .indicator {
+    background: #e2e8df;
+    height: 3px;
+}
+h2 {
+    font-size : 20px;
+}
+.boucle {
+    width: 12.5%!important;
+}
+.table {
+    background: #e2e8df;
+}
+.number {
+    font-weight: bold;
+}
+.exo {
+    color: #e2e8df;
+}
+.cancel {
+    background: #d50000 ;
+}
+.cancel:hover {
+    background: #c62828!important;
+}
+.pdo {
+    width: 20%!important;
+}
+.pic {
+    max-width: 100%;
+    max-height: 200px;
+}
+/**
+*dimension card
+*/
+.card-image {
+    height: 200px;
+}
+.cardClient {
+    height: 90px!important;
+}
+.card-action {
+    height: 50px;
+}
+.pic2 {
+    width: 100%;
+    height: auto;
+}
+.radio {
+    margin-left: 0!important;
+}
+.info {
+    font-size: 0.8em;
+    font-style: italic;
+}
+.table {
+    border: 1px black solid;
+}
+span.badge.new {
+    background: #b71c1c; 
+}

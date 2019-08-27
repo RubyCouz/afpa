@@ -1,5 +1,5 @@
 <?php
-print_r($_POST);
+
 try {
     $db = new PDO('mysql:host=localhost;charset=utf8;dbname=jarditou', 'root', '');
 } catch (Exception $e) {
@@ -29,50 +29,7 @@ $radioPattern = '/^[1-2]{1}$/';
 $colorPattern = '/^[a-zA-Zéèëê]+$/';
 $pro_photo = '';
 
-if (isset($_POST['file']))
-{
-    echo 'blabla';
-    /**
-     * Vérification du champs fichier
-     */
-    $data = false;
-    // si le champs file n'est pas vide
-    
-        // on peut vérifier que le type de fichier est bien pris en compte :
-        // on définis les type de fichiers acceptés
-        $aMimeTypes = array('image/gif', 'image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'image/x-png', 'image/tiff');
-        /**
-         *  On extrait le type du fichier via l'extension FILE_INFO  
-         */
-        // création d'une nouvelle ressource fileinfo dans laquelle nous indiquons l'info recherchée  
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        // on récupère le type MIME du fichier et on le stock dans une variable
-        $mimetype = finfo_file($finfo, $_FILES['file']['tmp_name']);
 
-        finfo_close($finfo);
-        //si le type de fichier est correct
-        if (in_array($mimetype, $aMimeTypes))
-        {
-            // récupération de l'extension du fichier et stockage dans une variable
-            $pro_photo = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
-        }
-        // stockage du chemein de destintaion dans une variable
-        $upload_dir = '../../assets/img/';
-        // renommage du fichier
-        $_FILES['file']['name'] = $_POST['pic'];
-        // indication du chemin + nom de fichier pour le déplacement
-        $upload_file = $upload_dir . $_FILES['file']['name'];
-        // autaorisation pour l'écriture
-        chmod($_FILES['file']['tmp_name'], 0777);
-        //déplacement du fichier
-        if (move_uploaded_file($_FILES['file']['tmp_name'], $upload_file))
-        {
-            echo 'ok';
-            $data = true;
-        }
-    
-    echo $data;
-}
 
 // si la valeur du bouton submit est présente
 if (isset($_POST['submit']))

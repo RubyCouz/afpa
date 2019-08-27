@@ -125,11 +125,11 @@ this.result = parseInt(firstNumber.value) + parseInt(secondNumber.value);') ?>
                 <div class="row">
                     <div class="col s12">
                         <ul class="tabs">
-                            <li class="tab col s3 offset-s3"><a class="active" href="#view">Vue</a></li>
-                            <li class="tab col s3"><a href="#js">JS</a></li>
+                            <li class="tab col s3 offset-s3"><a class="active" href="#viewVue">Vue</a></li>
+                            <li class="tab col s3"><a href="#jsVue">JS</a></li>
                         </ul>
                     </div>
-                    <div id="view" class="col s12">
+                    <div id="viewVue" class="col s12">
                         <pre>
     <code class="html">
                                 <?= htmlspecialchars('
@@ -218,7 +218,7 @@ this.result = parseInt(firstNumber.value) + parseInt(secondNumber.value);') ?>
     </code>
                         </pre>
                     </div>
-                    <div id="js" class="col s12">
+                    <div id="jsVue" class="col s12">
                         <pre>
     <code class="js">
                                 <?= htmlspecialchars('
@@ -243,7 +243,7 @@ var sum = new Vue({
                         </pre>
                     </div>
                 </div>
-                <a href="exo_vuejs/additionneur.html" class="waves-effect waves-light btn" title="Lien vers démo" target="_blank">RUN CODE</a>
+                <a href="additionneur.php" class="waves-effect waves-light btn" title="Lien vers démo" target="_blank"><i class="material-icons right">play_arrow</i>RUN CODE</a>
             </div>
         </li>
     </ul>

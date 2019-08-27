@@ -381,7 +381,7 @@ class departements extends connectionRegion {
                         </pre>   
                     </div>
                 </div>
-                <a href="ajaxDemo.php" class="waves-effect waves-light btn" title="Lien vers démo ajax" target="_blank">RUN CODE</a>
+                <a href="ajaxDemo.php" class="waves-effect waves-light btn" title="Lien vers démo ajax" target="_blank"><i class="material-icons right">play_arrow</i>RUN CODE</a>
             </div>
         </li>
     </ul>

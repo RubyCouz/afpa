@@ -16,46 +16,26 @@ include '../header.php';
                 <pre>
     <code class="php">
                         <?= htmlspecialchars('
-    $db[\'default\'] = array(
-	
-    \'dsn\'    => \'\',
-	
-    \'hostname\' => \'localhost\',
-	
-    \'username\' => \'root\',
-	
-    \'password\' => \'\',
-	
-    \'database\' => \'jarditou\',
-	
-    \'dbdriver\' => \'mysqli\',
-	
-    \'dbprefix\' => \'\',
-	
-    \'pconnect\' => FALSE,
-	
-    \'db_debug\' => (ENVIRONMENT !== \'production\'),
-	
-    \'cache_on\' => FALSE,
-	
-    \'cachedir\' => \'\',
-	
-    \'char_set\' => \'utf8\',
-	
-    \'dbcollat\' => \'utf8_general_ci\',
-	
-    \'swap_pre\' => \'\',
-	
-    \'encrypt\' => FALSE,
-	
-    \'compress\' => FALSE,
-	
-    \'stricton\' => FALSE,
-	
-    \'failover\' => array(),
-	
-    \'save_queries\' => TRUE
-	
+    $db[\'default\'] = array(	
+    \'dsn\'    => \'\',	
+    \'hostname\' => \'localhost\',	
+    \'username\' => \'root\',	
+    \'password\' => \'\',	
+    \'database\' => \'jarditou\',	
+    \'dbdriver\' => \'mysqli\',	
+    \'dbprefix\' => \'\',	
+    \'pconnect\' => FALSE,	
+    \'db_debug\' => (ENVIRONMENT !== \'production\'),	
+    \'cache_on\' => FALSE,	
+    \'cachedir\' => \'\',	
+    \'char_set\' => \'utf8\',	
+    \'dbcollat\' => \'utf8_general_ci\',	
+    \'swap_pre\' => \'\',	
+    \'encrypt\' => FALSE,	
+    \'compress\' => FALSE,	
+    \'stricton\' => FALSE,	
+    \'failover\' => array(),	
+    \'save_queries\' => TRUE	
 );') ?>
     </code>
                 </pre>
@@ -94,7 +74,7 @@ class produitModel extends CI_model {
     </code>
                 </pre>
                 <p>
-                    Nous commençons par appeler la méthode de connexion à la base de données avec <code>$this->load->databas()</code>. Nous pouvons alors stocker notre requète dans une variable, puis l'exécuter :
+                    Nous commençons par appeler la méthode de connexion à la base de données avec <code>$this->load->database()</code>. Nous pouvons alors stocker notre requète dans une variable, puis l'exécuter :
                 </p>
                 <pre>
     <code class="php">
@@ -118,7 +98,7 @@ class produitModel extends CI_model {
                 </pre>
                 <p>
                     Attention : pour des soucis de clareté et d'organisation, nous utiliserons <b>un</b> modèle qui correspondra à <b>une</b> table !
-                </p>F
+                </p>
             </div>
         </li>
         <li>
@@ -294,14 +274,13 @@ class Product extends CI_Controller {
     <code class="html">
                                 <?= htmlspecialchars('
 
+
 <!-- application/views/liste.php -->
 
-<!DOCTYPE html>
-
 <h1>Liste des produits</h1>
-<div class="uk-container">
+<div class="container">
     <a href="<?= site_url(\'Produits/addProduct\') ?>" class="waves-effect waves-light btn" title="Lien vers ajout d\'un produit" target="_blank">Ajouter un produit</a>
-    <table class="uk-table uk-table-striped">
+   <table class="stripped highlight centered responsive-table table">
         <thead>
         <th>Photo</th>
         <th>Id</th>
@@ -322,7 +301,7 @@ class Product extends CI_Controller {
                 ?>
                 <tr>
                     <td>
-                        <img src="<?= base_url(\'assets/img/\' . $row->pro_id . \'.\' . $row->pro_photo) ?>" alt="Photo d\'illustration" title="Photo de <?= $row->pro_libelle ?>" />
+                        <img src="<?= base_url(\'assets/img/\' . $row->pro_id . \'.\' . $row->pro_photo) ?>" alt="Photo d\'illustration" title="Photo de <?= $row->pro_libelle ?>" class="pic">
                     </td>
                     <td><?= $row->pro_id ?></td>
                     <td><?= $row->pro_cat_id ?></td>
@@ -335,7 +314,7 @@ class Product extends CI_Controller {
                     <td><?= $row->pro_d_ajout ?></td>
                     <td><?= $row->pro_d_modif ?></td>
                     <td><?= $row->pro_bloque == 1 ? \'Oui\' : \'Non\' ?></td>
-                    <td><a href="<?= site_url(\'Produits/update\') . \'?pro_id=\' . $row->pro_id ?>" title="Lien vers la fiche produit" class="waves-effect waves-light btn uk-button-small">Fiche Produit</a>
+                    <td><a href="<?= site_url(\'Produits/update\') . \'/\' . $row->pro_id ?>" title="Lien vers la fiche produit" class="waves-effect waves-light btn">Fiche Produit</a>
                     </td>
                 </tr>
                 <?php
@@ -344,12 +323,13 @@ class Product extends CI_Controller {
         </tbody>
     </table>    
     <a href="<?= site_url(\'Produits/addProduct\') ?>" class="waves-effect waves-light btn" title="Lien vers ajout d\'un produit" target="_blank">Ajouter un produit</a>
-</div> ') ?> 
+</div> 
+                    ') ?> 
     </code>
                         </pre>
                     </div>
                 </div>
-                <a href="../ci/index.php/produits/liste" class="waves-effect waves-light btn" title="Lien vers démo" target="_blank">RUN CODE</a>
+                <a href="../ci/index.php/Produits/liste" class="waves-effect waves-light btn" title="Lien vers démo" target="_blank"><i class="material-icons right">play_arrow</i>RUN CODE</a>
             </div>
         </li>
     </ul>

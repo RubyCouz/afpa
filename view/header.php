@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../../assets/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai.min.css">
-        <link rel="stylesheet" href="../../assets/css/style.css"/>
+        <link rel="stylesheet" href="../../assets/css/style.css">
     </head>
 
     <body>

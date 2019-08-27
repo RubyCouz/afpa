@@ -32,7 +32,7 @@ include '../../controler/productControler.php';
                         <span class="card-title">Détail du produit <?= $product->pro_libelle ?> :</span>
                         <form method="POST" action="#" enctype="multipart/form-data">   
                             <div class="row">
-                                <div class="col s6">
+                                <div class="col s6" id="prev">
                                     <img src="../../assets/img/<?= $product->pro_id . '.' . $product->pro_photo ?>" alt="" class="materialboxed pic2">
                                 </div>
                                 <div class="col s6">
@@ -101,10 +101,10 @@ include '../../controler/productControler.php';
                                     <div class="file-field input-field">
                                         <div class="btn">
                                             <span>Insérer une photo</span>
-                                            <input type="file" name="file">
+                                            <input type="file" name="file" id="upload">
                                         </div>
                                         <div class="file-path-wrapper">
-                                            <input class="file-path validate" type="text">
+                                            <input class="file-path validate" type="text" id="file">
                                         </div>
                                         <span class="info">Au format .gif, .jpg, .jpeg, .pjpeg ou .png</span>
                                     </div>

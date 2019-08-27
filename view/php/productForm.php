@@ -21,7 +21,7 @@ include '../../controler/productFormController.php';
                             <div class="row">
                                 <div class="col s6" id="prev">
                                     
-                                    <img src="" alt="" id="picture" class="materialboxed pic2">
+                                    
                                     
                                 </div>
                                 <div class="col s6">
@@ -88,7 +88,7 @@ include '../../controler/productFormController.php';
                                             <input type="file" name="file" id="upload">
                                         </div>
                                         <div class="file-path-wrapper">
-                                            <input class="file-path validate" type="text" id="file>
+                                            <input class="file-path validate" type="text" id="file">
                                         </div>
                                         <span class="info">Au format .gif, .jpg, .jpeg ou .png</span>
                                         <span class="error" id="errorFile"><?= isset($formError['file']) ? $formError['file'] : '' ?></span>
