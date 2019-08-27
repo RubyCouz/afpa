@@ -35,7 +35,7 @@ class Produits extends CI_Controller {
      */
     public function addProduct()
     {
-        $this->output->enable_profiler(TRUE);
+        //$this->output->enable_profiler(TRUE);
         // appel de l'helper pour la gestion des urls
         $this->load->helper('url');
         // appel du helper form
@@ -88,26 +88,41 @@ class Produits extends CI_Controller {
                 $this->upload->do_upload("pro_photo");
                 //gestion des erreurs pour l'upload
                 $error = $this->upload->display_errors();
-                $file = $this->upload->data();
+                if ($error == '')
+                {
+                    $file = $this->upload->data();
 
-                $this->load->model('Prod_model');
-                $this->Prod_model->addProduct();
+                    $this->load->model('Prod_model');
+                    $this->Prod_model->addProduct();
+                    $id = $this->db->insert_id();
+                    // renommage du final
+                    rename($file["full_path"], realpath('assets/img/') . "/" . $id . $file["file_ext"]);
+                    $this->load->view('header');
+                    $this->load->view('confirmAdd');
+                    $this->load->view('footer');
 
-//                // récupération et formatage de la date (date courante) d'ajout du produit
-//                $data["pro_d_ajout"] = date("Y-m-d");
-//                // récupération de l'extensio du fichier en vue de son insertion en base de données
-//                $data["pro_photo"] = substr($file["file_ext"], 1);
-//                // insertion des données du formulaire en base de données ($data -> données du formulaire)
-//                $this->db->insert("produits", $data);
-                // récupération du dernier id inséré dans la base de données
-                $id = $this->db->insert_id();
-                // renommage du final
-                rename($file["full_path"], realpath('assets/img/') . "/" . $id . $file["file_ext"]);
-
-
-                //Ã  utiliser si les classes sont autochargées
-                //$this->upload->initialize($config);
-                redirect('produits/liste');
+                    //Ã  utiliser si les classes sont autochargées
+                    //$this->upload->initialize($config);
+                }
+                else
+                {
+                    /**
+                     * Affichage des categories de produits dans la liste déroulante
+                     */
+                    // appel de la classe catégoriesModel
+                    $this->load->model('Cat_model');
+                    // appel de la méthode "liste()" du model précédemment chargé
+                    $categoriesList = $this->Cat_model->categoriesList();
+                    // ajout des résultats de la requÃ¨te dans le tableau des variables Ã  transmettre Ã  la vue
+                    $catView['categoriesList'] = $categoriesList;
+                    $catView['error'] = $error;
+                    /**
+                     * Affichage du formulaire d'ajout
+                     */
+                    $this->load->view('header');
+                    $this->load->view('addProduct', $catView);
+                    $this->load->view('footer');
+                }
             }
         }
         else
@@ -238,16 +253,17 @@ class Produits extends CI_Controller {
     /**
      * Suppression d'un produit
      */
-    public function delete()
+    public function delete($id)
     {
+        $this->output->enable_profiler(TRUE);
         // appel de l'helper pour la gestion des urls
         $this->load->helper('url');
         // chargement du model Prod_model
         $this->load->model('Prod_model');
         // appel de la méthode delete
-        $this->Prod_model->delete();
+        $this->Prod_model->delete($id);
         // redirection vers la liste de produit
-        redirect('produits/liste');
+        //redirect('produits/liste');
     }
 
 }

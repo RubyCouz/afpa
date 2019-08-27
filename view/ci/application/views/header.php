@@ -52,7 +52,8 @@
             <li><a href="../../../codeigniter/part2.php" title="Lien vers la partie 2 Afficher la liste de produits JArditou">Afficher le contenu d'une table</a></li>
             <li><a href="../../../codeigniter/part3.php" title="Lien vers la partie 3 Modification d'un produit ">Afficher le détail d'une ligne d'une table</a></li>
             <li><a href="../../../codeigniter/part4.php" title="Lien vers la partie 4 Modification d'un produit (suite) ">Modifier une ligne d'une table</a></li>
-            <li><a href="../../../codeigniter/part5.php" title="Lien vers la partie 5 suppression d'un produit ">Suppression d'une ligne d'une table</a></li>
+            <li><a href="../../../codeigniter/part4.php" title="Lien vers la partie 4 Modification d'un produit (suite) ">Modifier une ligne dans une table</a></li>
+            <li><a href="../../../codeigniter/part6.php" title="Lien vers la partie 6 ajout d'un produit ">Ajout d'une ligne dans une table</a></li>
         </ul>
 
         <!-- mobil -->

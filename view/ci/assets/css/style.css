@@ -125,3 +125,7 @@ h2 {
 span.badge.new {
     background: #b71c1c; 
 }
+.modal {
+    width: 30%;
+    height: 250px;
+}
